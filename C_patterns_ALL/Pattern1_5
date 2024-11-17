@@ -298,3 +298,34 @@ int main()
 	}	
 	
 }
+********************************
+1
+23
+456
+78910
+1112131415
+161718192021
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+	int i,j, rows, col,k=1;
+	
+	printf(" Enter no. of rows");
+	scanf("%d",&rows);
+	printf(" Enter no. of columns");
+	scanf("%d",&col);
+	
+	for(i=1;i<=rows;i++)
+	{
+		for(j=1;j<=i;j++)
+		{
+			printf("%d",k++);
+		}
+		printf("\n");
+	}
+	
+			
+}
