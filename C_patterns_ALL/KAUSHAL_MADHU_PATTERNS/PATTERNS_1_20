@@ -204,4 +204,313 @@ int main()
     }
 }
 ******************
-7= 
+7 to 10 DONE already
+PATTERN 11--
+
+    *
+   **
+  ***
+ ****
+*****
+#include <stdio.h>
+
+int main()
+{
+    int i,j;
+    
+    for(i=1;i<=5;i++)
+    {
+        for(j=1;j<=5;j++)
+        {
+            if(j>=(6-i))
+            {
+                printf("*");
+            }
+            else
+            {
+                printf(" ");
+            }
+        }
+        
+        printf("\n");
+    }
+}
+********************************
+PATTERN 12--
+
+    1
+   01
+  101
+ 0101
+10101
+
+#include <stdio.h>
+
+int main()
+{
+    int i,j;
+    
+    for(i=1;i<=5;i++)
+    {
+        for(j=4;j>=i;j--)
+        {
+            printf(" ");
+        }
+        
+        for(j=i;j>=1;j--)
+        {
+            printf("%d",j%2);
+        }
+        
+        printf("\n");
+    }
+}
+
+ORR
+
+int main()
+{
+    int i,j;
+    
+    for(i=1;i<=5;i++)
+    {
+        
+        for(j=1;j<=5;j++)
+        {
+            if(j>=(6-i))
+            {
+                printf("%d",6-j);
+            }
+            else
+            {
+                printf(" ");
+            }
+        }
+        
+        printf("\n");
+    }
+}
+*********************************
+PATTERN 14--
+
+    1
+   12
+  123
+ 1234
+12345
+
+
+int main()
+{
+    int i,j;
+    
+    for(i=1;i<=5;i++)
+    {
+        
+        for(j=4;j>=i;j--)
+        {
+            printf(" ");
+        }
+        
+        for(j=1;j<=i;j++)
+        {
+            printf("%d",j);
+        }
+        
+        printf("\n");
+    }
+}
+*********************************
+PATTERN 15-
+*****
+ ****
+  ***
+   **
+    *
+
+#include <stdio.h>
+
+int main()
+{
+    int i,j;
+    
+    for(i=1;i<=5;i++)
+    {
+        
+        for(j=1;j<=i;j++)
+        {
+            printf(" ");
+        }
+        
+        for(j=5;j>=i;j--)
+        {
+            printf("*");
+        }
+        
+        printf("\n");
+    }
+}
+************************
+PATTERN 16--
+ 12345
+  1234
+   123
+    12
+     1
+
+#include <stdio.h>
+
+int main()
+{
+    int i,j;
+    
+    for(i=5;i>=1;i--)
+    {
+        
+        for(j=5;j>=i;j--)
+        {
+            printf(" ");
+        }
+        
+        for(j=1;j<=i;j++)
+        {
+            printf("%d",j);
+        }
+        
+        printf("\n");
+    }
+}
+
+/*************************************************
+PATTERN 17--
+54321
+ 4321
+  321
+   21
+    1
+
+#include <stdio.h>
+
+int main()
+{
+    int i,j;
+    
+    for(i=5;i>=1;i--)
+    {
+        
+        for(j=4;j>=i;j--)
+        {
+            printf(" ");
+        }
+        
+        for(j=i;j>=1;j--)
+        {
+            printf("%d",j);
+        }
+        
+        printf("\n");
+    }
+}
+***************************
+PATTERN 18
+    *
+   ***
+  *****
+ *******
+*********
+
+#include <stdio.h>
+
+int main()
+{
+    int i,j;
+    
+    for(i=1;i<=5;i++)
+    {
+        
+        for(j=4;j>=i;j--)
+        {
+            printf(" ");
+        }
+        
+        for(j=i;j>=1;j--)
+        {
+            printf("*");
+        }
+        
+        for(j=i;j>=2;j--)
+        {
+            printf("*");
+        }
+        
+        printf("\n");
+    }
+}
+
+*************************
+PATTERN 19
+    * 
+   * * 
+  * * * 
+ * * * * 
+* * * * * 
+
+#include <stdio.h>
+
+int main()
+{
+    int i,j;
+    
+    for(i=1;i<=5;i++)
+    {
+        
+        for(j=4;j>=i;j--)
+        {
+            printf(" ");
+        }
+        
+        for(j=i;j>=1;j--)
+        {
+            printf("* ");
+        }
+        
+        
+        
+        printf("\n");
+    }
+}
+**************************
+PATTERN 20
+    1
+   121
+  12321
+ 1234321
+123454321
+
+#include <stdio.h>
+
+int main()
+{
+    int i,j;
+    
+    for(i=1;i<=5;i++)
+    {
+        
+        for(j=4;j>=i;j--)
+        {
+            printf(" ");
+        }
+        
+        for(j=1;j<=i;j++)
+        {
+            printf("%d",j);
+        }
+        for(j=i-1;j>=1;j--)
+        {
+            printf("%d",j);
+        }
+        
+        
+        printf("\n");
+    }
+}
