@@ -195,4 +195,75 @@ int main()
     }     
     
 }
+****************************************
+PATTERN 26  TBD
+*        *
+**      **
+***    ***
+****  ****
+**********
 
+#include <stdio.h>
+
+int main()
+{
+    int i,j,n;
+    
+    for(i=1;i<=5;i++)
+    {
+        for(j=1;j<=i;j++)
+        {
+            printf("*");
+        }
+        for(j=4;j>=i;j--)
+        {
+            printf(" ");
+        }
+        for(j=4;j>=i;j--)
+        {
+            printf(" ");
+        }
+        for(j=1;j<=i;j++)
+        {
+            printf("*");
+        }        
+        
+        printf("\n");
+    }     
+    
+}
+***********************
+PATTERN 27
+*     *
+ *   * 
+  * *  
+   *   
+  * *  
+ *   * 
+*     *
+
+#include <stdio.h>
+
+int main()
+{
+    int i,j,n;
+    
+    for(i=1;i<=7;i++)
+    {
+        for(j=1;j<=7;j++)
+        {
+            if((i==j) || j==(8-i))
+            {
+                printf("*");
+            }
+            else
+            {
+                printf(" ");
+            }
+                
+        }
+        
+        printf("\n");
+    }     
+    
+}
