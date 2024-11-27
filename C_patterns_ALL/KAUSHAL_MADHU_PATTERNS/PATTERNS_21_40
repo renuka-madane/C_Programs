@@ -142,5 +142,57 @@ int main()
     }
 }
 ************************
+PATTERN 25  TBD
 
+
+
+#include <stdio.h>
+
+int main()
+{
+    int i,j,n;
+    
+    for(i=5;i>=1;i--)
+    {
+        for(j=1;j<=i;j++)
+        {
+            printf("%d",j);
+        }
+        for(j=4;j>=i;j--)
+        {
+            printf("*");
+        }
+        for(j=4;j>=i;j--)
+        {
+            printf("*");
+        }
+        n=1;
+        while(n>=1)
+        {
+            for(int j=4;j>=1;j--)
+            {
+                printf("%d",j);
+                
+            }
+            n=n-1;
+        };
+        
+        
+            
+    for(int k=5;k>=1;k--)
+        {
+            
+            
+            for(int j=k-1;j>=1;j--)
+            {
+                printf("%d",j);
+            }            
+            
+        }
+        
+        
+        printf("\n");
+    }     
+    
+}
 
