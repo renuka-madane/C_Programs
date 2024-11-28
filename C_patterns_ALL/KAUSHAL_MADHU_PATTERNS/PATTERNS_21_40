@@ -377,6 +377,61 @@ int main()
 }
 *****************************
 PATTERN 31
+
+    *
+   **
+  ***
+ ****
+*****
+ ****
+  ***
+   **
+    *
+
+
+#include <stdio.h>
+
+int main()
+{
+    int i,j;
+    
+    for(i=5;i>=1;i--)
+    {
+        for(j=1;j<=5;j++)
+        {
+            if(j<=i-1)
+            {
+                printf(" ");
+            }
+            else
+            {
+                printf("*");
+            }
+        }
+        printf("\n");
+    }
+    
+    for(i=1;i<=5;i++)
+    {
+        for(j=1;j<=5;j++)
+        {
+            if(j<=i)
+            {
+                printf(" ");
+            }
+            else
+            {
+                printf("*");
+            }
+        }
+        printf("\n");
+    }
+}
+
+
+**********************************
+PATTERN 32
+
 *               * 
 * *           * * 
 * * *       * * * 
@@ -439,4 +494,103 @@ int main()
         printf("\n");
         
     }
+**************************
+PATTERN 33  TBD
+1       9
+12     89
+123   789
+1234 6789
+123456789
+1234 4321
+123   321
+12     21
+1       1
+
+
+#include <stdio.h>
+
+int main()
+{
+    int i,j;
     
+    for(i=1;i<=5;i++)
+    {
+        for(j=1;j<=9;j++)
+        {
+            if(j<=i || j>=(10-i))
+            {
+                printf("%d",j);
+            }
+            else
+            {
+                printf(" ");
+            }
+            
+        }
+        
+        printf("\n");
+    }
+    
+    for(i=4;i>=1;i--)
+    {
+        for(j=1;j<=4;j++)
+        {
+            if(j<=i)
+            {
+                printf("%d",j);
+            }
+            else
+            {
+                printf(" ");
+            }
+            
+        }
+        
+        for(j=4;j>=i;j--)
+        {
+            printf(" ");
+        }
+        for(j=i;j>=1;j--)
+        {
+            
+            printf("%d",j);
+        }
+        
+        
+        printf("\n");
+        
+    }
+}
+    
+****************************
+PATTERN  34
+    *    
+   ***   
+  *****  
+ ******* 
+*********
+
+
+#include <stdio.h>
+
+int main()
+{
+    int i,j;
+    
+    for(i=1;i<=5;i++)
+    {
+        for(j=1;j<=9;j++)
+        {
+            if((j>=(6-i)&&(j<=(4+i))))
+            {
+                printf("*");
+            }
+            else
+            {
+                printf(" ");
+            }
+            
+        }
+        printf("\n");
+    }
+}
