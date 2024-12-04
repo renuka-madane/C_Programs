@@ -14,3 +14,7 @@ Only one value can be returned from a C function. To return multiple values, we 
 
 Function Arguments   int function_name(int var1, int var2);
 Exiting the function is the final step where all the allocated memory to the variables, functions, etc is destroyed before giving full control back to the caller.
+Pass by Value -->> Parameter passing in this method copies values from actual parameters into formal function parameters. As a result, 
+any changes made inside the functions do not reflect in the caller’s parameters. 
+Pass by Reference -->> The caller’s actual parameters and the function’s actual parameters refer to the same locations, 
+so any changes made inside the function are reflected in the caller’s actual parameters. 
