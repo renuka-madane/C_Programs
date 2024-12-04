@@ -7,3 +7,10 @@ Function Definition -- return_type function_name (para1_type para1_name, para2_t
     // body of the function
 }
 
+Function Call
+We use the function name and parameters in the function call.  Function call is neccessary to bring the program control to the function definition. If not called, the function statements will not be executed.
+Function Return Type -->> Function return type tells what type of value is returned after all function is executed. When we don’t want to return a value, we can use the void data type.
+Only one value can be returned from a C function. To return multiple values, we have to use pointers or structures.
+
+Function Arguments   int function_name(int var1, int var2);
+Exiting the function is the final step where all the allocated memory to the variables, functions, etc is destroyed before giving full control back to the caller.
