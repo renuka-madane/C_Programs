@@ -35,3 +35,8 @@ Return Value  --->> return (expression);
 return_type function_name(parameter_list);
 
 In C, if we do not specify a return type, compiler assumes an implicit return type as int.
+If a reference of a function is passed to another function as an argument to call it, then it will be called a Callback function.
+
+nested function, it is treated as lexical scoping. Lexical scoping is not valid in C because the compiler cant reach/find the correct memory location of the inner function.
+The _Noreturn keyword appears in a function declaration and specifies that the function does not return by executing the return statement or by reaching the end of the function body. 
+This specifier is typically used through the convenience macro noreturn, which is provided in the header stdnoreturn.h.
