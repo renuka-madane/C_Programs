@@ -40,3 +40,57 @@ If a reference of a function is passed to another function as an argument to cal
 nested function, it is treated as lexical scoping. Lexical scoping is not valid in C because the compiler cant reach/find the correct memory location of the inner function.
 The _Noreturn keyword appears in a function declaration and specifies that the function does not return by executing the return statement or by reaching the end of the function body. 
 This specifier is typically used through the convenience macro noreturn, which is provided in the header stdnoreturn.h.
+
+FUNCTIONS CODE --
+#include <stdio.h>
+float sum(float , float);
+int main()
+{
+	float add=sum(10,55.5);
+	
+	printf(" the sum of these nos. is -- %f",add);
+	
+	
+	
+}
+
+float sum(float a, float b)
+{
+	printf("%f",a+b);
+		return a+b;
+	
+	
+	
+}
+65.500000 the sum of these nos. is -- 65.500000
+
+PASS BY REFERENCE
+#include <stdio.h>
+
+int swap(int *num1, int *num2,int *num3);
+
+
+int main()
+{
+	int a=20,b=50,temp=60;
+	
+	printf("Before swap Value of a and b is: %d, %d\n",a,b);
+	swap(&a,&b,&temp);
+	printf("After swap Value of a and b is: %d, %d",a,b);
+	
+		
+}
+
+int swap(int *num1, int *num2,int *num3)
+{
+	int b=55;
+	int *temp;
+	temp=&b;
+	printf("%d\n",*temp);
+	printf("%d\n%d\n%d",*num1,*num2,*num3);
+	*temp=*num1;
+	printf("%d\n",*temp);
+	*num1=*num2;
+	*num2=*temp;	
+	
+}
