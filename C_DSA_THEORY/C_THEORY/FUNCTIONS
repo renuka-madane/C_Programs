@@ -33,3 +33,5 @@ C Function Call -->> function_name(arg1, arg2, ... argN);
 Return Value  --->> return (expression);
 
 return_type function_name(parameter_list);
+
+In C, if we do not specify a return type, compiler assumes an implicit return type as int.
