@@ -219,3 +219,33 @@ int FindGrt(int num1, int num2,int arr[])
 	}
 	
 }
+
+**************************
+Callbacks in C--------
+
+#include <stdio.h>
+
+void func_a(void);
+
+void func_b(void (*ptr)());
+ 
+int main()
+{
+	
+	void (*func_ptr)()=&func_a;
+	
+	func_b(func_ptr);
+		   		
+}
+
+void func_b(void (*ptr)())
+{
+	(*ptr)();	
+}
+
+void func_a(void)
+{
+	
+	
+	printf("I am function A");
+}
