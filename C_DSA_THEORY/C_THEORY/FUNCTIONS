@@ -94,3 +94,128 @@ int swap(int *num1, int *num2,int *num3)
 	*num2=*temp;	
 	
 }
+
+***********************
+###Returning multiple values Using pointers:
+#include <stdio.h>
+
+int GreaterNum(int num1,int num2,int *add_grt,int *add_small);
+
+int main()
+{	
+	int x,y,grt,smaller;	
+	printf("Enter two numbers: \n");
+    scanf("%d%d", &x, &y);
+    GreaterNum(x,y,&grt,&smaller);
+	
+printf("\nThe greater number is %d and the smaller number is %d",
+           grt, smaller);		
+}
+
+int GreaterNum(int num1,int num2,int *add_grt,int *add_small)
+{
+	if(num1>num2)
+	{		
+		*add_grt=num1;		
+		*add_small=num2;
+	}
+	else
+	{		
+		*add_grt=num2;		
+		*add_small=num1;
+	}		
+}
+
+*****************************************************
+#include <stdio.h>
+
+struct GreaterNum
+{
+	int greater;
+	int smaller;
+	
+};
+
+typedef struct GreaterNum Struct;
+
+Struct FindGrt(int , int);
+ 
+int main()
+{
+	
+	int x,y;
+	Struct result;
+	
+	printf("Enter two numbers: \n");
+    scanf("%d%d", &x, &y);
+    
+    result=FindGrt(x,y);
+	
+printf("\nThe greater number is %d and the smaller number is %d",
+           result.greater,result.smaller);		
+}
+
+Struct FindGrt(int num1, int num2)
+{
+	Struct s;
+	
+	if(num1>num2)
+	{
+		
+		s.greater=num1;
+		
+		s.smaller=num2;
+	}
+	else
+	{
+		
+		s.greater=num2;
+		
+		s.smaller=num1;
+	}
+	
+	return s;
+}
+**************************************
+
+#include <stdio.h>
+
+
+int FindGrt(int , int , int arr[]);
+ 
+int main()
+{
+	
+	int x,y, arr[2];
+	
+	
+	printf("Enter two numbers: \n");
+    scanf("%d%d", &x, &y);
+    
+    FindGrt(x,y,arr);
+	
+printf("\nThe greater number is %d and the smaller number is %d",arr[0],arr[1]);
+
+		   		
+}
+
+int FindGrt(int num1, int num2,int arr[])
+{
+	
+	
+	if(num1>num2)
+	{
+		
+		arr[0]=num1;
+		
+		arr[1]=num2;
+	}
+	else
+	{
+		
+		arr[0]=num2;
+		
+		arr[1]=num1;
+	}
+	
+}
