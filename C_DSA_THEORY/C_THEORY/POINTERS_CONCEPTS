@@ -1,0 +1,7 @@
+The syntax of pointers depends on the type they are pointing to.  type*ptr;
+To declare a pointer, we use the (*) dereference operator before its name.
+We use the (&) addressof operator to get the memory address of a variable and then store it in the pointer variable.  (*) dereferencing operator
+As pointers in C store the memory addresses, their size is independent of the type of data they are pointing to. This size of pointers in C only depends on the system architecture.
+The reason for the same size is that the pointers store the memory addresses, no matter what type they are. As the space required to store the addresses of the 
+different memory locations is the same, the memory required by one pointer type will be equal to the memory required by other pointer types.
+An array name acts like a pointer constant. The value of this pointer constant is the address of the first element. For example, if we have an array named val then val and &val[0] can be used interchangeably.
