@@ -10,3 +10,5 @@ data_type_of_pointer **name_of_variable = & normal_pointer_variable;
 
 The output of the above code also depends on the type of machine which is being used. The size of a pointer is not fixed in the C programming language and it depends on other 
 factors like CPU architecture and OS used. Usually,for a 64-bit Operating System, the size will be 8 bytes and for a 32-bit Operating system, the size will be 4 bytes.
+
+
