@@ -5,3 +5,8 @@ As pointers in C store the memory addresses, their size is independent of the ty
 The reason for the same size is that the pointers store the memory addresses, no matter what type they are. As the space required to store the addresses of the 
 different memory locations is the same, the memory required by one pointer type will be equal to the memory required by other pointer types.
 An array name acts like a pointer constant. The value of this pointer constant is the address of the first element. For example, if we have an array named val then val and &val[0] can be used interchangeably.
+
+data_type_of_pointer **name_of_variable = & normal_pointer_variable;
+
+The output of the above code also depends on the type of machine which is being used. The size of a pointer is not fixed in the C programming language and it depends on other 
+factors like CPU architecture and OS used. Usually,for a 64-bit Operating System, the size will be 8 bytes and for a 32-bit Operating system, the size will be 4 bytes.
