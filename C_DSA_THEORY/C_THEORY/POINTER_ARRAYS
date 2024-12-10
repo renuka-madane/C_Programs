@@ -1,0 +1,6 @@
+Pointer to an Array | Array Pointer
+A pointer to an array is a pointer that points to the whole array instead of the first element of the array. 
+It considers the whole array as a single unit instead of it being a collection of given elements.
+
+Syntax of Pointer to Array
+type(*ptr)[size];
