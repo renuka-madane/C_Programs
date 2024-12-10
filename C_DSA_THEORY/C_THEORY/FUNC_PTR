@@ -1,0 +1,44 @@
+void (*fun_ptr)(int) ---- syntax
+function_return_type(*Pointer_name)(function argument list)
+
+If we remove bracket, then the expression “void (*fun_ptr)(int)” becomes “void *fun_ptr(int)” which is declaration of a function that returns void pointer.
+The mechanism of callback functions in C is dependent on the function pointers.
+Array of Function Pointers
+type (*ptr[])(args) = {fun1, fun2, ...};
+
+a function pointer can be passed as an argument and can also be returned from a function.
+CODE--
+#include <stdio.h>
+
+void fun1() { printf("Fun1\n"); }
+void fun2() { printf("Fun2\n"); }
+
+void wrapper(void (*func_ptr)())
+{
+	(*func_ptr)();
+}
+
+int main()
+{
+	wrapper(fun1);
+	wrapper(&fun2);  	
+	
+}
+**************************
+int swap(int *num1,int *num2)
+{
+    int temp;
+    temp=*num1;
+    *num1=*num2;
+    *num2=temp;
+}
+
+int main()
+{
+    int (*func_ptr)(int *a,int *b)=&swap;
+    int a=10,b=50;
+    
+    (*func_ptr)(&a,&b);
+    
+    printf("Values after swapping are a=%d and b=%d",a,b);
+}
