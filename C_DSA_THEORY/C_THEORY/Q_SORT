@@ -1,0 +1,26 @@
+qsort
+void qsort (void* base, size_t num, size_t size,int (*compar)(const void*,const void*));
+
+Sorts the num elements of the array pointed to by base, each element size bytes long, using the compar function to determine the order.
+The sorting algorithm used by this function compares pairs of elements by calling the specified compar function with pointers to them as argument.
+The function does not return any value, but modifies the content of the array pointed to by base reordering its elements as defined by compar.
+
+PARAMETERS-- 
+base
+Pointer to the first object of the array to be sorted, converted to a void*.
+num
+Number of elements in the array pointed to by base.
+size_t is an unsigned integral type.
+size
+Size in bytes of each element in the array.
+size_t is an unsigned integral type.
+
+compare
+Pointer to a function that compares two elements.
+This function is called repeatedly by qsort to compare two elements. It shall follow the following prototype:
+1-- int compar (const void* p1, const void* p2);
+Taking two pointers as arguments (both converted to const void*). The function defines the order of the elements by returning
+(in a stable and transitive manner):
+a pointer to a function is used to invoke a function indirectly.
+
+More details-- https://cplusplus.com/reference/cstdlib/qsort/
