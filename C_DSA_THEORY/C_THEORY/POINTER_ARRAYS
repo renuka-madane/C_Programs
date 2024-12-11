@@ -4,3 +4,41 @@ It considers the whole array as a single unit instead of it being a collection o
 
 Syntax of Pointer to Array
 type(*ptr)[size];
+ the difference between the pointer to an array and pointer to the first element of an array.
+**********************************
+int main()
+{
+    int arr[]={ 1, 2, 3, 4, 5 };
+    
+    int *ptr=arr; //ptr that points to the 0th element of the array.
+    
+    printf("%d",ptr);
+}
+
+***********************
+#include <stdio.h>
+WARNING warning: initialization of ‘int (*)[5]’ from incompatible pointer type ‘int *’ [-Wincompatible-pointer-types]
+   15 |     int (*ptr)[5]=arr; //ptr that points to the 0th element of the array.
+int main()
+{
+    int arr[]={ 1, 2, 3, 4, 5 };
+    
+    int (*ptr)[5]=arr; //ptr that points to the 0th element of the array.
+    also wrong --  int (*ptr)[5]=&arr[0];
+    printf("%p",ptr);
+}
+
+***********************************
+CORRECT WAY --
+#include <stdio.h>
+int main()
+{
+    int arr[]={ 1, 2, 3, 4, 5 };
+    CORRECT WAY --
+    int (*ptr)[5]=&arr; //ptr is pointer that points to an array of 5 integers.    
+    printf("%p",ptr);
+}
+
+Pointer to the First Element of Array vs Pointer to Array
+
+
