@@ -1,0 +1,68 @@
+int Even_Odd_Count(int (*ptr)[10],int n)
+{
+    
+    int count_even=0,count_odd=0;
+    int i;
+    for(i=0;i<n;i++)
+    {
+        if((*ptr)[i]%2==0)
+        {
+            count_even++;
+        }
+        else
+        {
+            count_odd++;
+        }
+        ptr++;
+    }
+    
+    printf("%d\n",count_even);
+    printf("%d",count_odd);
+    
+}
+
+int main()
+{
+    int arr[]={ 1, 2, 3, 4, 5, 6, 22, 8, 40, 10 };
+    
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int *p1=arr;
+    
+    Even_Odd_Count(&arr,n);
+    
+}
+
+*******************************************************WAY2
+int Even_Odd_Count(int *ptr,int n)
+{
+    
+    int count_even=0,count_odd=0;
+    int i;
+    for(i=0;i<n;i++)
+    {
+        if(*ptr%2==0)
+        {
+            count_even++;
+        }
+        else
+        {
+            count_odd++;
+        }
+        ptr++;
+    }
+    
+    printf("%d\n",count_even);
+    printf("%d",count_odd);
+    
+}
+
+int main()
+{
+    int arr[]={ 1, 2, 3, 4, 5, 6, 22, 8, 40, 10 };
+    
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int *p1=arr;
+    
+    Even_Odd_Count(arr,n);
+    
+}
