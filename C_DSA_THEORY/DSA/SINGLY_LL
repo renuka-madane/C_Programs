@@ -1,0 +1,62 @@
+DISPLAY BASIC SINGLY LL
+
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+struct node // Create structure for node in LL.
+{
+    int data; //int type of data to old information
+    struct node *next; //to hold address of next node
+};
+int main()
+{
+    //declare pointers of type struct node,memory will be allotted in the stack
+    struct node *head,*mid1,*mid2,*mid3,*last;
+    //we use malloc function to allocate memory dynamically with the size of struct node
+    //memory will be allocated in heap section and its address 
+    head=malloc(sizeof(struct node));
+    mid1=malloc(sizeof(struct node));
+    mid2=malloc(sizeof(struct node));
+    mid3=malloc(sizeof(struct node));
+    last=malloc(sizeof(struct node));
+    
+printf("original address of nodes on the stack\n");
+printf("%p\n%p\n%p\n%p\n%p\n",&head,&mid1,&mid2,&mid3,&last); 
+OUTPUT--
+original address of nodes on the stack
+0x7ffd0b5fa898
+0x7ffd0b5fa8a0
+0x7ffd0b5fa8a8
+0x7ffd0b5fa8b0
+0x7ffd0b5fa8b8
+=========================
+printf("Address saved in the nodes returned from the heap.\n");
+printf("%p\n%p\n%p\n%p\n%p\n",head,mid1,mid2,mid3,last); 
+OUTPUT--
+Address saved in the nodes returned from the heap.
+0x5ebbc1cc32a0
+0x5ebbc1cc32c0
+0x5ebbc1cc32e0
+0x5ebbc1cc3300
+0x5ebbc1cc3320
+==============================
+    head->data=10;
+    mid1->data=20;
+    mid2->data=30;
+    mid3->data=40;
+    last->data=50;
+    
+    head->next=mid1;
+    mid1->next=mid2;
+    mid2->next=mid3;
+    mid3->next=last;
+    last->next=0;
+    
+    struct node *temp=head;    
+    while(temp != 0)
+    {
+        printf("%d\n%p\n",temp->data,temp->next);
+        temp=temp->next;
+    }    
+    
+}
