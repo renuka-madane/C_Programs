@@ -51,7 +51,7 @@ Address saved in the nodes returned from the heap.
     mid2->next=mid3;
     mid3->next=last;
     last->next=0;
-    
+    //TRAVERSING THE LL
     struct node *temp=head;    
     while(temp != 0)
     {
