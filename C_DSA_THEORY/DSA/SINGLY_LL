@@ -120,14 +120,7 @@ void TraverseLL(struct node *ptr)
 }
 ***********************************************************
 ADD NEW NODE AT END OF LL
-/******************************************************************************
 
-Welcome to GDB Online.
-  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
-  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
-  Code, Compile, Run and Debug online from anywhere in world.
-
-*******************************************************************************/
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
@@ -200,11 +193,12 @@ void TraverseLL(struct node *ptr)
     TraverseLL(ptr->next);    
 }
 ***************************************************************************
+ADD NEW NODE AT START OF LL
+
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
 
-//Adding a node at the end of LL.
 struct node // Create structure for node in LL.
 {
     int data; //int type of data to old information
