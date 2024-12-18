@@ -320,3 +320,98 @@ void TraverseLL(struct node *ptr)
         
     TraverseLL(ptr->next);    
 }
+******************************************
+DELETE NODE AT END OF LINKED LIST.
+
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+struct node // Create structure for node in LL.
+{
+    int data; //int type of data to old information
+    struct node *next; //to hold address of next node
+}; 
+
+void TraverseLL(struct node *ptr);
+
+int main()
+{
+    //declare pointers of type struct node,memory will be allotted in the stack
+    struct node *head,*mid1,*mid2,*mid3,*last;
+    //we use malloc function to allocate memory dynamically with the size of struct node
+    //memory will be allocated in heap section and its address 
+    head=malloc(sizeof(struct node));
+    mid1=malloc(sizeof(struct node));
+    mid2=malloc(sizeof(struct node));
+    mid3=malloc(sizeof(struct node));
+    last=malloc(sizeof(struct node));
+    
+printf("original address of nodes on the stack\n");
+printf("%p\n%p\n%p\n%p\n%p\n",&head,&mid1,&mid2,&mid3,&last); 
+printf("Address saved in the nodes returned from the heap.\n");
+printf("%p\n%p\n%p\n%p\n%p\n",head,mid1,mid2,mid3,last); 
+    head->data=10;
+    mid1->data=20;
+    mid2->data=30;
+    mid3->data=40;
+    last->data=50;    
+    head->next=mid1;
+    mid1->next=mid2;
+    mid2->next=mid3;
+    mid3->next=last;
+    last->next=0;
+    
+    struct node *new_node=malloc(sizeof(struct node));
+    new_node->data=85;
+    new_node->next=head;
+    head=new_node;    
+    struct node *temp=head;
+    //struct node **temp=&head;
+    //TraverseLL(*temp);
+    printf(" The original SLL.\n");
+    TraverseLL(head); 
+    
+    printf("Code for deleting nodes.\n");
+    
+    //If the list has only one node delete it and return NULL.
+    
+    while(head->next==0)
+    {
+        free(head);
+        
+    }
+    
+    //struct node *temp=head;
+    struct node *previous;
+    
+    // else traverse to the last node
+  while (temp->next->next != NULL)
+    {
+      // store previous link node as we need to change its next val
+      //previous = temp;
+      temp = temp->next;
+    }
+  // Curr assign 2nd last node's next to Null
+  //previous->next = 0;
+  // delete the last node
+  
+  free(temp->next);
+  temp->next=0;
+  // 2nd last now becomes the last node
+    
+    printf("After deleting last node.\n");
+    TraverseLL(head);
+}
+
+void TraverseLL(struct node *ptr)
+{    
+    if(ptr==0)
+    {
+        return;
+    }    
+    printf("%d\n%p\n",ptr->data,ptr->next);
+        //ptr=ptr->next;    
+        
+    TraverseLL(ptr->next);    
+}
