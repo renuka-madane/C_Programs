@@ -51,4 +51,93 @@ printf("%p\n%p\n%p\n%p\n%p\n",head,mid1,mid2,mid3,last);
     }    
       
 }
+*********************************************************************
+
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+struct node // Create structure for node in LL.
+{
+    int data; //int type of data to old information
+    struct node *next; //to hold address of next node
+    struct node *prev; //to hold address of prev node
+};
+
+
+
+int main()
+{
+    //declare pointers of type struct node,memory will be allotted in the stack
+    struct node *head,*mid1,*mid2,*mid3,*last;
+    //we use malloc function to allocate memory dynamically with the size of struct node
+    //memory will be allocated in heap section and its address 
+    head=malloc(sizeof(struct node));
+    mid1=malloc(sizeof(struct node));
+    mid2=malloc(sizeof(struct node));
+    mid3=malloc(sizeof(struct node));
+    last=malloc(sizeof(struct node));
+    
+printf("original address of nodes on the stack\n");
+printf("%p\n%p\n%p\n%p\n%p\n",&head,&mid1,&mid2,&mid3,&last); 
+
+printf("Address saved in the nodes returned from the heap.\n");
+printf("%p\n%p\n%p\n%p\n%p\n",head,mid1,mid2,mid3,last); 
+
+    head->data=10;
+    mid1->data=20;
+    mid2->data=30;
+    mid3->data=40;
+    last->data=50;
+    
+    printf("OG LL --Assigning references of the nodes.\n");
+    head->prev=NULL;
+    head->next=mid1;
+    mid1->prev=head;
+    mid1->next=mid2;
+    mid2->prev=mid1;
+    mid2->next=mid3;
+    mid3->prev=mid2;
+    mid3->next=last;
+    last->prev=mid2;
+    last->next=NULL;
+    //TRAVERSING THE LL
+    struct node *temp=head;    
+    while(temp != 0)
+    {
+        printf("%d\n%p\n%p\n",temp->data,temp->prev,temp->next);
+        temp=temp->next;
+    } 
+    
+    printf("After adding new node at beg. \n");
+    struct node *new_node=malloc(sizeof(struct node));
+    
+    while(head != NULL)
+    {
+        new_node->prev=NULL;
+        new_node->next=head;
+        head->prev=new_node;
+        new_node=head;
+        
+    }
+    
+    //TRAVERSING THE LL
+    struct node *temp1=head;    
+    while(temp1 != 0)
+    {
+        printf("%d\n%p\n%p\n",temp1->data,temp1->prev,temp1->next);
+        temp1=temp1->next;
+    } 
+    
+    
+      
+}
+
 
