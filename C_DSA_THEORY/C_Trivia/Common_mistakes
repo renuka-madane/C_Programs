@@ -33,3 +33,8 @@ Values at address of p and q -- 2 2
 values after func call 0 2
 
 ****************************
+int a = 12;
+    void *ptr = (int *)&a;
+    printf("%d", *(int*)ptr);
+    getchar();
+    return 0;
