@@ -1,0 +1,26 @@
+*****************Ways to declare a string
+int main()
+{
+    char s1[]="geeks";    
+    char s2[]={'g','f','g','\0'};    
+    printf("%s %s",s1,s2);    
+    
+}
+
+OUTPUT-- geeks gfg
+
+**********************ex for strcmp function
+int main()
+{
+    char s1[]="gfg";
+    
+    char s2[]={'c','o','u','r','s','e','s','\0'};
+    
+    printf("%d ",strcmp(s1,s2));
+    printf("%d ",strcmp(s1,"gfg"));
+    printf("%d ",strcmp(s1,"GFG"));
+    printf("%d ",strcmp(s1,"gf"));
+    printf("%d ",strcmp(s1,"hg"));
+   }
+4 0 32 103 -1  based on 
+   
