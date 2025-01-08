@@ -1,3 +1,20 @@
+****************************STRING SYNTAX SIZE AND LENGTH
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+   char s1[]="geeks";
+   char s2[]={'g','f','g','\0'};
+   
+   printf("%s %s ",s1,s2);
+   printf("%ld %ld ",sizeof(s1),sizeof(s2));//size of the 2 strings
+   
+   printf("%ld %ld",strlen(s1),strlen(s2));  //length of the 2 strings
+    
+}
+geeks gfg 6 4 5 3
+******************************STRING COPY
 int main()
 {
     char s1[5];
@@ -35,3 +52,36 @@ int main()
     }     
 }
 gfg g f g   geek g e e k 
+
+******************************STRING CONCATENATION
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+   char s1[15]="geeks";
+   char s2[]={'g','f','g','\0'};
+   
+   strcat(s1,s2);
+   
+   printf("%s",s1);
+    
+}
+geeksgfg
+
+==============N VERSION
+int main()
+{
+   char s1[15]="geeks";
+   char s2[50]={'g','f','g','r','e','n','u','\0'};
+   char s3[]={'m','a','d','a','n','e','\0'};
+   
+   strncat(s1,s2,2);
+   
+   printf("%s ",s1);
+   
+   strncat(s3,s2,2);
+   
+   printf("%s ",s3);    
+}
+geeksgf madanegf 
