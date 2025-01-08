@@ -85,3 +85,25 @@ int main()
    printf("%s ",s3);    
 }
 geeksgf madanegf 
+*************************************STRCMP
+
+=======================N VERSION
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char s1[15]="renu madane";
+   char s2[50]={'r','e','n',' ','\0','s','o','\0'};
+   char s3[20]="renu somasekar";
+   
+   if(strncmp(s1,s3,5)==0)
+   {
+       printf("1st 5 chars are same. ");
+   }
+   else
+   {
+       printf("NOT same.");
+   }
+}
+1st 5 chars are same. 
