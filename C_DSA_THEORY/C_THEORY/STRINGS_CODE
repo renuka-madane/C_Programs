@@ -1,0 +1,87 @@
+**********************PATTERN SEARCH ITERATIVE METHOD
+
+#include <stdio.h>
+#include <string.h>
+ char pattern(char *s,char *p)
+ {
+     int m=strlen(s);
+     int n=strlen(p);
+     
+     for(int i=0;i<=(m-n);i++)
+     {
+         int a=i;
+         int j;
+         
+         for(j=0;j<n;j++)
+         {
+             if(s[a]!=p[j])
+             {
+                 break;
+             }
+             a++;
+         }
+         
+         if(j==n)
+     {
+         printf("Pattern found at index %d\n",i);
+     }
+     }   
+ }
+int main()
+{
+    char s[]="geeks forgABC scourses";
+    char p[]="ABC";
+    pattern(s,p);
+}
+OUTPUT== Pattern found at index 10.
+
+***********************USING IN BUILT FUNC STR,STR
+#include <stdio.h>
+#include <string.h>
+
+ char pattern(char *s,char *p)
+ {
+     char *r=strstr(s,p);
+     
+     if(p)
+     {
+         printf("First occurrence is at index- %ld\n",s-r);
+     }
+     else
+     {
+         printf("Not found.");
+     }     
+ }
+int main()
+{
+    char s[]="geeks forgABC scourses";
+    char p[]="ABC";
+    pattern(s,p);
+    
+}
+****************************FOR MULTIPLE OCCURRENCES USING STRSTR FUNC
+#include <stdio.h>
+#include <string.h>
+ char pattern(char *s,char *p)
+ {
+     char *r=strstr(s,p);
+     
+     if(r==NULL)
+     {
+         printf("Not found.");
+     }
+     while(r)
+     {
+         printf("Occurrences are at index %ld. ",s-r);
+         r=strstr(r+1,p);
+     }
+     
+ }
+int main()
+{
+    char s[]="geeks forgABC scoABCrses";
+    char p[]="ABC";
+    pattern(s,p);    
+}
+Occurrences are at index -10. Occurrences are at index -17.
+
