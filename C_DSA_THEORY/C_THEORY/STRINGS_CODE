@@ -84,4 +84,32 @@ int main()
     pattern(s,p);    
 }
 Occurrences are at index -10. Occurrences are at index -17.
+**************************************REVERSE A STRING
+#include <stdio.h>
+#include <string.h>
 
+ char pattern(char *s)
+ {
+     int m=strlen(s);
+     int k=0;
+     char new_string[50];
+     
+     for(int i=(m-1);i>=0;i--)
+     {
+         new_string[k]=s[i];
+         k++;
+         
+     }
+     
+     printf("%s",new_string);
+     
+ }
+
+int main()
+{
+    char s[]="geeks";
+    
+    pattern(s);
+    
+}
+OUTPUT == skeeg
