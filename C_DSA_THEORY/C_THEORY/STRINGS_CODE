@@ -113,3 +113,86 @@ int main()
     
 }
 OUTPUT == skeeg
+
+*************************Check if the 2 strings are anagram of each other
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char s1[]="lamp";
+    char s2[]="palm";   
+    int m=strlen(s1);
+    int n=strlen(s2);
+    int not_found=0;    
+    
+    int j;    
+    for(int i=0;i<m;i++)
+    {
+        int found=0;
+        printf("Before string search.\n");     
+                
+        for(j=0;j<m;j++)
+        {
+            printf("String NOT found,cont search.\n");
+            if(s2[i]==s1[j])
+            {
+                found=1;
+                printf("String found.\n");
+                break;
+            }        
+            
+        }
+        if (found == 0)
+			{
+				not_found = 1; // assign 1 to not_found
+				break;
+			}    
+        
+    }
+    printf("%d ",not_found);
+    
+    if(not_found==1)
+    {
+        printf(" Anagram NOT  exists.");
+    }
+    else
+    {
+        printf(" Anagram  exists.");
+    }
+    
+}
+***************************CHECK IF PALINDROME 
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char str[]="cibvc";
+    
+    int m=strlen(str);
+    int not_pal=0;
+    
+    for(int i=0;i<m;i++)
+    {
+        if(str[i]!=str[(m-1)-i])
+        {
+            not_pal=1;
+            break;
+        }
+        
+    }
+    
+    if(not_pal==1)
+    {
+        printf(" NOT A PAL.");
+    }
+    else
+    {
+        printf(" ITS A PAL.");
+    }
+    
+    
+    
+}
+
