@@ -1,0 +1,10 @@
+Variables naming rules .
+
+sizeof operator size --  https://www.geeksforgeeks.org/sizeof-operator-c/
+https://www.geeksforgeeks.org/global-variables-in-c/ 
+when we create curly braces it creates a scope. CURLY BRACKETS DEFINE A BLOCK OF SCOPE , ANYTHING DECLARED BETWEEN CURLY BRACKS
+GOES OUT OF SCOPE AFTER THE CLOSING BRACKET.
+
+const in C before var
+static global variables would not be accessible to other files in linking phase.
+to convert floating constant to float.
