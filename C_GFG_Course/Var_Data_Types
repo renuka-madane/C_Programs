@@ -1,4 +1,6 @@
 Variables naming rules .
+SEE PROMOTION rules in C.
+By default floating constant is of double data type.by suffixing it with f or F, we can convert it to float data type.
 
 sizeof operator size --  https://www.geeksforgeeks.org/sizeof-operator-c/
 https://www.geeksforgeeks.org/global-variables-in-c/ 
@@ -8,3 +10,6 @@ GOES OUT OF SCOPE AFTER THE CLOSING BRACKET.
 const in C before var
 static global variables would not be accessible to other files in linking phase.
 to convert floating constant to float.
+
+https://www.geeksforgeeks.org/scope-rules-in-c/ --->> Scope rules on C.
+
