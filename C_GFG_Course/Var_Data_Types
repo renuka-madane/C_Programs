@@ -8,6 +8,8 @@ SEE PROMOTION rules in C.
 By default floating constant is of double data type.by suffixing it with f or F, we can convert it to float data type.
 
 sizeof operator size --  https://www.geeksforgeeks.org/sizeof-operator-c/
+
+A block or a region where a variable is declared, defined, and used and when a block or a region ends, the variable is automatically destroyed.
 https://www.geeksforgeeks.org/global-variables-in-c/ 
 when we create curly braces it creates a scope. CURLY BRACKETS DEFINE A BLOCK OF SCOPE , ANYTHING DECLARED BETWEEN CURLY BRACKS
 GOES OUT OF SCOPE AFTER THE CLOSING BRACKET.
@@ -17,6 +19,17 @@ static global variables would not be accessible to other files in linking phase.
 to convert floating constant to float.
 
 https://www.geeksforgeeks.org/scope-rules-in-c/ --->> Scope rules on C.
+
+https://www.geeksforgeeks.org/static-and-dynamic-scoping/
+STATIC variables in C -- https://www.geeksforgeeks.org/static-variables-in-c/
+Static global variables are automatically initialized if you do not provide an explicit initialization. Normal global variables can be accessed from other files if they are linked appropriately, whereas static global variables have internal linkage.
+
+Internal linkage refers to the scope of variables that restricts their visibility to the current file only. When preprocessing is 
+completed in your C program, the resulting code reflects this internal linkage,
+ensuring that static global variables cannot be accessed from outside their defining file.
+
+If int variable has a negative value, the negative value is stored in 2's complement. If type conversion happens
+in int to unsigned then 2's complement representation is considered as it is in an unsigned variable.
 
 **********************CODES
 #include <stdbool.h>
@@ -58,3 +71,227 @@ int main()
 8 
 4 
 4 
+========================codes to show the precedences of local and global vars
+#include <stdio.h>
+
+// Global variable
+int var = 5; 
+int main() 
+{
+  	// Local variable
+	int var = 10;
+    printf("%d \n", var);
+    //printf("%d", y);
+	return 0;
+}
+OUTPUT== 10
+
+#include <stdio.h>
+
+// Global variable
+int var; 
+int main() 
+{
+  	// Local variable
+	//int var = 10;
+    printf("%d \n", var);
+    //printf("%d", y);
+	return 0;
+}
+OUT == 0
+===================
+// Global variable
+int var=22; 
+int main() 
+{
+  	// Local variable
+	var = 10;
+    printf("%d \n", var);   
+	return 0;
+}
+OUT = = 10
+Global and local variables have the same name, but when accessed within a function, the local variable takes priority.
+
+==================
+// Global variable
+int var; 
+int main() 
+{
+  	// Local variable
+	int y = 10;
+    printf("%d \n", var);
+    printf("%d", y);
+	return 0;
+}
+OUT-- 0 10
+========================
+#include <stdio.h>
+$$$$$$$$$$$$$$$A global variable has a special property, we use them first and initialize them 
+later this can be achieved by using an extern keyword use with global variables.
+// Global variable
+extern int var; 
+int main() 
+{
+  	// Local variable
+	int y = 10;
+    printf("%d \n", var);
+    printf("%d", y);
+	return 0;
+}
+var=55;  OUTPUT == 55
+=======================================
+Variable in same scope then compiler use that and if not in same scope then compiler try to access variable from the immediate outer scope.
+#include <stdio.h>
+
+int x = 20;
+int main() 
+{
+    int x = 10;
+  	{
+      int x = 30;
+      printf("%d", x);
+    }
+    return 0;
+}
+======================
+ A block or a region where a variable is declared, defined and used and when a block or a region ends, variable is automatically destroyed.
+Note: To restrict access to the current file only, global variables can be marked as static.
+A Block is a set of statements enclosed within left and right braces i.e. ‘{‘ and ‘}’ respectively.
+A variable declared inside a block is accessible in the block and all inner blocks of that block, but not accessible outside the block. 
+Basically these are local to the blocks in which the variables are defined and are not accessible outside.
+
+#include <stdio.h>
+
+// Driver Code
+int main()
+{
+	{
+		int x = 10, y = 20;
+		{
+			// The outer block contains
+			// declaration of x and
+			// y, so following statement
+			// is valid and prints
+			// 10 and 20
+			printf("x = %d, y = %d\n", x, y);
+			{
+				// HERE y is NOT declared again,
+				// only the value of outer block y is
+				//changed so it remains after this block scope as well
+				y = 40; OR int y=40;  //adding int means y is declared again here.
+
+				// Changes the outer block
+				// variable x to 11
+				x++;
+
+				// Changes this block's
+				// variable y to 41
+				y++;
+
+				printf("x = %d, y = %d\n", x, y);
+			}
+			// This statement accesses
+			// only outer block's
+			// variables
+			printf("x = %d, y = %d\n", x, y);
+		}
+	}
+	return 0;
+}
+OUTPUT== x = 10, y = 20
+x = 11, y = 41
+x = 11, y = 41
+OR
+x = 10, y = 20
+x = 11, y = 41
+x = 11, y = 41
+===================
+// C program to illustrate
+// function prototype scope
+
+#include <stdio.h>
+
+// function prototype scope
+//(not part of a function definition)
+int Sub(int num1, int num2);
+
+// file scope
+int num1=66;
+
+// Function to subtract
+int Sub(int num1, int num2)
+{
+	return (num1-num2);
+}
+
+// Driver method
+int main(void)
+{
+	printf("%d\n", Sub(10,5));
+	return 0;
+}
+OUTPUT == 5
+======================================
+// C program to illustrate scope of variables
+
+#include<stdio.h>
+
+int main()
+{
+	// Initialization of local variables
+	int x = 1, y = 2, z = 3;
+
+	printf("x = %d, y = %d, z = %d\n",
+	x, y, z);
+	{
+
+		// changing the variables x & y
+		x = 10;
+		float y = 20;
+		
+		printf("x = %d, y = %f, z = %d\n",
+		x, y, z);
+		{
+
+			// changing z
+			int z = 100;
+			printf("x = %d, y = %f, z = %d\n",
+			x, y, z);
+		}
+	}
+	printf("x = %d, y = %d, z = %d\n",
+	x, y, z);
+	return 0;
+}
+OUTPUT== x = 1, y = 2, z = 3
+x = 10, y = 20.000000, z = 3
+x = 10, y = 20.000000, z = 100
+x = 10, y = 2, z = 3
+===================================
+int main()
+{
+    const int a=50;
+    const float b=5.55;
+    const char g='A';
+    const char str[]="Renuka";    
+    a=99;    
+}
+error: assignment of read-only variable ‘a’
+   18 |     a=99;
+==========================================
+Static variables retain their value even after leaving their scope.
+Therefore, they keep their previous value and are not reinitialized in the new scope.
+In normal variables, a function's exit causes the variable to be destroyed; however, this is not the case with static local variables.
+Static variables remain in memory even after the function call ends.
+In normal variables, a function's exit causes the variable to be destroyed; however, this is not the case with static local variables.
+Static variables remain in memory even after the function call ends.
+#include <stdio.h>
+
+int main()
+{
+    char str[]="renuka";
+    printf("%s ",str);
+    str[2]='h';
+    printf("%s",str);
+}
+renuka rehuka
