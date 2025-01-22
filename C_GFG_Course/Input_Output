@@ -1,3 +1,5 @@
 Even if we write floating point no., its converted to double b4 we print it. FLOAT data type is automatically upgraded b4 printing.
+The fgets() function in C is a reliable way to read strings, especially when dealing with inputs containing spaces.
+Unlike scanf(), which stops reading at spaces, fgets() reads the entire string, including spaces,up to a specified length.
 
 
