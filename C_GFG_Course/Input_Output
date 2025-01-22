@@ -6,7 +6,7 @@ In C, strings are null terminated, meaning an additional character (\0) is added
 size and it includes the space for the null terminator (\0).
 Originally, fgets() was designed to read input from files. However, by providing stdin as the input stream, it can read from standard input,
 like user input from the keyboard. This makes it versatile for various use cases.
-
+ scanf stops reading a string when it encounters a whitespace. For reading strings with spaces, use fgets instead.
  fgets(name, 100, stdin);
 
 Why Use fgets()?
@@ -17,3 +17,90 @@ The fgets() function addresses these issues by allowing programmers to specify t
 including the null terminator (\0). This safety feature makes it a preferred choice for reading strings.
 By default, %f prints 6 digits after the decimal point.
 In the case of long double values, the format specifier becomes %Lf for fixed-point representation.
+
+printf("%width.precision", args...)
+********************************************Codes FOR INPUT_OUTPUT_IN_C  module
+int main()
+{
+    printf("%c ", "GeeksQuiz"[5]);
+    return 0;
+}
+ans- Q -- broken down as *("GeeksQuiz"+5) adding 5 to base address of the string increases pointer 
+=====================
+void myStrcat(char *a, char *b)
+{
+    int m = strlen(a);
+    int n = strlen(b);
+    int i;
+    for (i = 0; i <= n; i++)
+       a[m+i]  = b[i];
+}
+
+int main()
+{
+    char str1[100] = "Geeks ";
+    char *str2 = "Quiz";
+    myStrcat(str1, str2);
+    printf("%s ", str1);
+    return 0;
+}
+REFER -- https://www.geeksforgeeks.org/storage-for-strings-in-c/
+===================
+#include <stdio.h>
+void fun1(char *s1, char *s2) {
+  char *temp;
+  temp = s1;
+  s1 = s2;
+  s2 = temp;
+}
+void fun2(char **s1, char **s2) {
+  char *temp;
+  temp = *s1;
+  *s1 = *s2;
+  *s2 = temp;
+}
+int main() {
+  char *str1 = "Hi", *str2 = "Bye";
+  fun1(str1, str2);
+  printf("%s %s", str1, str2);
+  fun2(&str1, &str2);
+  printf("%s %s", str1, str2);
+  return 0;
+}
+ANSWER---  Hi Bye Bye Hi --- >>in 1st function --Everything is local here. So, once function completes its execution all modification
+go in vain.This will retain modification and swap pointers of string.
+So output would be Hi Bye Bye Hi
+==============================
+int fun1(int n) {
+    static int i= 0;
+    if (n > 0) {
+       ++i;
+      fun1(n-1);
+   }
+  return (i);
+}
+int fun2(int n) {
+   static int i= 0;
+   if (n>0) {
+      i = i+ fun1 (n) ;
+      fun2(n-1) ;
+  }
+return (i);
+}
+please refer https://gateoverflow.in/333185/gate-cse-2020-question-46 for answer details.
+==================
+Refer Q-- https://gateoverflow.in/333183/gate-cse-2020-question-48
+int SomeFunction (int x, int y)
+{
+    if ((x==1) || (y==1)) return 1;
+    if (x==y) return x;
+    if (x > y) return SomeFunction(x-y, y);
+    if (y > x) return SomeFunction (x, y-x); 
+}  https://gateoverflow.in/357517/gate-cse-2021-set-2-question-23
+=============
+Refer-- https://gateoverflow.in/357488/gate-cse-2021-set-2-question-49
+==============
+https://brainly.com/question/40702914
+
+
+
