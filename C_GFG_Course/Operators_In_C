@@ -96,6 +96,69 @@ int main()
   getchar(); 
   return 0; 
 }
-ANW==1
+ANS==1
+****************************
+#include<stdio.h> 
+int main() 
+{ 
+  char *s[] = { "knowledge","is","power"}; 
+  char **p; 
+  p = s; 
+  printf("%s ", ++*p); 
+  printf("%s ", *p++); 
+  printf("%s ", ++*p); 
+  
+  return 0; 
+}  for detailed answer refer https://gateoverflow.in/63559/c-program
 
+**************************
+#include <stdio.h>
+#define VAL 32 
+int main()
+{
+    char arr[] = "geeksquiz";
+    *(arr + 0) &= ~VAL;
+    *(arr + 5) &= ~VAL;
+    printf("%s", arr);    
+}
+The crux of the question lies in the statement: *(arr + 5) &= ~VAL; This statement subtracts 32 from the ascii value of a lower case character 
+and thus converts it to upper case. This is another way to convert an alphabet to upper case by resetting its bit positioned at value 32 i.e.
+5th bit from the LSB(assuming LSB bit at position 0).
+==================
+#include <stdio.h>
 
+int main() {
+    int x = 10;
+    int y = 20;
+    x += y += 10;
+    printf("%d %d", x, y);
+    return 0;
+}
+=============
+#include <stdio.h>
+int main()
+{
+   int a = 0;
+   int b;
+   a = (a == (a == 1));
+   printf("%d", a);
+   return 0;
+}
+=================
+#include "stdio.h"
+
+int main() 
+
+{ 
+
+  int x, y = 5, z = 5; 
+
+  x = y == z; 
+
+  printf("%d", x); 
+
+  getchar(); 
+
+  return 0; 
+
+}  https://edurev.in/question/3294402/Find-the-Output--includeltstdio-hgtint-main--%7B-int-x--y-5--z-5-x-y-z-printf-quot-dquot--x--getchar--
