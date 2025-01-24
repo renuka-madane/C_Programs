@@ -1,17 +1,48 @@
+The '++' operator is used to increment the value of an integer by one. When placed before the variable name (also called the pre-increment), 
+its value is incremented instantly. When it is placed after the variable name (also called the post-increment), its value is incremented
+after the evaluation of whole expression.
+two values. They evaluate expressions and return Boolean values (true or false), which are represented as 1 (true) and 0 (false) in C. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+Decrement Operator (--)--When placed before the variable name (also called the pre-decrement), its value is decremented instantly. 
+When it is placed after the variable name (also called the post-decrement), its value is decremented after the evaluation of whole expression.
+Short-circuiting refers to the behavior of logical operators where evaluation stops as soon as the result is determined. In the case of 
+logical AND, the second expression/condition is not evaluated if the first expression/condition is false. and in logical OR, 
+second expression/condition is not evaluated if the first condition is true.
+======================================
+#include <stdbool.h>
+#include <stdio.h>
+int main()
+{
+	int x = 5;
+	bool res = (x++ && x>10);
+    printf("%d\n", res);
+    printf("%d", x);
+	return 0;
+} ANS -- 
+================================
+#include <stdbool.h>
+#include <stdio.h>
+int main()
+{
+	int x = 5;
+	bool res = (x > 10 && x++);
+    printf("%d\n", res);
+    printf("%d", x);
+	return 0;
+}
+ANS-- 0 6   First expression is evaluated because it's true expression and AND operator need to check second expression/condition.
+============================
+#include <stdbool.h>
+#include <stdio.h>
+int main()
+{
+	int x = 5;
+  	bool res = (x > 2 || x++);
+    printf("%d\n", res);
+    printf("%d", x);
+	return 0;
+}
+ANW -- 1 5
 ******************************CODES
 #include <stdio.h>
 int main()
@@ -162,3 +193,32 @@ int main()
   return 0; 
 
 }  https://edurev.in/question/3294402/Find-the-Output--includeltstdio-hgtint-main--%7B-int-x--y-5--z-5-x-y-z-printf-quot-dquot--x--getchar--
+==================================
+#include <stdio.h>
+
+int main()
+{
+    int a=15,b=2;
+    printf("Divison is %d ",a/b);
+    printf("Modulo is %d",a%b);
+} ANS- Divison is 7 Modulo is 1
+=============================
+#include <stdio.h>
+int main() 
+{
+    int x = 10;
+    int y = x++; // y = x; y = x+1;
+    int z = ++x; // x = x+1; z = x;
+    printf("%d %d %d", x, y, z);
+    return 0;
+} ANS-- 12 10 12
+==============================
+#include <stdio.h>
+int main() 
+{
+    int x = 10;
+    int y = x--;  // y = x; x = x + 1;
+    int z = --x;  // x = x - 1; z = x;
+    printf("%d %d %d", x, y, z);
+    return 0;
+}  ANW-- 8 10 8
