@@ -1,28 +1,83 @@
-CODES====================
+==========INFINITE WHILE LOOP CASES
+In C, if the condition of a while loop always evaluates to true, the loop will run infinitely.
+A while loop can behave as infinite loop in the cases where the loop variable is:
+while (1)
+{
+    // Statements here will execute forever
+}
+...........
+#include <stdbool.h>
+while (true)
+{
+    // Statements will execute infinitely
+}
+..............
 #include <stdio.h>
 int main()
 {
-    for(int i=0;i<3;i++)
-        printf("%s %d\n","GFG",i);
-    printf("%d",i);
+    int i = 0;
+    while (i < 5);
+    {
+        printf("GfG");
+        i++;
+    }
+    return 0;
 }
-error: ‘i’ undeclared (first use in this function)
-   15 |     printf("%d",i);
-******************
+***************************For loops
+Variables declared in the initialization part of the for loop have their scope limit to the loop's body.
+They cannot be accessed outside loop's body.
 #include <stdio.h>
-
+int main()
+{
+    for (int i = 0; i < 3; i++)
+    {
+        printf("%d\n", i);
+    }
+    printf("%d\n", i);
+	return 0;
+}./Solution.c: In function 'main':
+./Solution.c:8:20: error: 'i' undeclared (first use in this function)
+     printf("%d\n", i);
+                    ^
+./Solution.c:8:20: note: each undeclared identifier is reported only once for each function it appears in
+But here i si declared outside the loop so no error occurs
+#include <stdio.h>
 int main()
 {
     int i;
-    for(i=0;i<3;i++)
-        printf("%s %d\n","GFG",i);
-    printf("%d",i);
+    for (i = 0; i < 3; i++)
+    {
+        printf("%d\n", i);
+    }
+    printf("%d\n", i);
+	return 0;
 }
-GFG 0
-GFG 1
-GFG 2
-3
-**********************
+INFINITE FOR LOOP CASES
+COND ALWAYS TRUE--
+#include <stdio.h>
+int main()
+{
+    for (int i = 1; i != 10; i += 2)
+    {
+        printf("GfG\n");
+    }
+	return 0;
+}In the above loop, the loop variable value varies like this 1, 3, 5, 7, 9, 11, .. and so on. It will never be 10, so the given 
+condition (i != 10)will always be true, leading to infinite for loop.
+OMITTING ALL 3 PARTS--
+#include <stdio.h>
+int main()
+{
+    for (;;)
+    {
+        printf("GfG\n");
+    }
+	return 0;
+}
+INFINITE DO-WHILE LOOPS
+
+
+==========CODES FROM LECTURES
 #include <stdio.h>
 //Find the smallest divisor of the number and it must be >1.
 
@@ -43,7 +98,7 @@ int main()
 }
 Enter any pos number greater than 1.49
 Smallest divisor is -- 7
-**************************
+***********
 #include <stdio.h>
 //Print nos. from 1 to n that are not multiple of x.
 
@@ -92,3 +147,85 @@ Enter any pos number greater than 1.3
 1 2 3 4 5 6 7 8 9 10 
 2 4 6 8 10 12 14 16 18 20 
 3 6 9 12 15 18 21 24 27 30 
+=========QUIZES
+#include<stdio.h>
+int main()
+{
+    int i = -5;
+    while (i <= 5)
+    {
+        if (i >= 0)
+            break;
+        else
+        {
+            i++;
+            continue;
+        }
+        printf("GeeksQuiz");
+    }
+    return 0;
+}--- Nothing is printed here since the loop breaks once i=>0.
+****************
+#include <stdio.h>
+int main()
+{
+    int i = 3;
+    while (i--)
+    {
+        int i = 100;
+        i--;
+        printf("%d ", i);
+    }
+    return 0;
+} https://gateoverflow.in/283372/programming-loops
+****************
+#include <stdio.h>
+int main()
+{
+    int x = 3;
+    if (x == 2); x = 0;
+    if (x == 3) x++;
+    else x += 2;
+    printf("x = %d", x);
+    return 0;
+}  https://gateoverflow.in/141044/programming-general-increment-decrement
+**********
+#include<stdio.h>
+int main()
+{
+    int a = 5;
+    switch(a)
+    {
+    default:
+        a = 4;
+    case 6:
+        a--;
+    case 5:
+        a = a+1;
+    case 1:
+        a = a-1;
+    }
+    printf("%d \\n", a);
+    return 0;
+} https://gateoverflow.in/45930/prog-what-is-the-output-of-the-following-program-tricky-question
+*******************
+for (i < 10; i = 0 ; i++) // (i)<br>
+for (i < 10; i++ ; i = 0) // (ii)<br>
+for (i = 0; i < 10 ; i++) // (iii)<br>
+for (i = 0; i++ ; i < 10) // (iv)<br>
+for (i++; i = 0 ; i < 10) // (v)<br>
+for (i++; i < 0 ; i = 10) // (vi)<br>  https://www.geeksforgeeks.org/quizzes/c-quiz-104-gq/
+***********
+for (i = 0; i < 10 ; i++) // (i)<br>
+for ( ; i < 10 ; i++) // (ii)<br>
+for (i = 0;  ; i++) // (iii)<br>
+for (i = 0; i < 10 ; ) // (iv)<br>
+for ( ; ; ) // (v)<br> https://www.geeksforgeeks.org/quizzes/c-quiz-104-gq/
+*******************
+which is correct for switch controlling expression.
+The controlling expression of switch control statement shall have int type,Also, char is promoted to int in switch control expression
+so its allowed but float is not allowed.
+********************
+for break and continue statements in C --
+break and continue can be used in for, while and do-while loop body  but only break can be used in switch body.
+===============Quiz done=============
