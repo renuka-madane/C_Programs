@@ -229,3 +229,184 @@ so its allowed but float is not allowed.
 for break and continue statements in C --
 break and continue can be used in for, while and do-while loop body  but only break can be used in switch body.
 ===============Quiz done=============
+
+PROBLEMS-- FACTORIAL OF A NO.
+int nFactorial(int n){
+    int ans = 1;
+    
+    //Write your code here
+    if(n==0 || n==1)
+    {
+        ans=1;
+    }
+    else
+    {
+        while(n)
+        {
+            ans=ans*n;
+            n--;
+        }
+    }
+    
+    
+    
+    return ans;
+}
+ORRR
+//User function Template for C
+
+int nFactorial(int n){
+    int ans = 1;
+    if (n==0 || n==1)
+       return ans;
+     for(int i=1;i<=n;i++)
+         ans*=i;
+    
+    return ans;
+}
+***********************NXT PRIME NO.
+int nextPrime(int n){        
+    
+    int num=n+1;
+    
+    while(num)
+    {
+        int prime_num=1;
+        
+        for(int i=2;i<num;i++)
+        {
+            if(num%i==0)
+            {
+                prime_num=0;
+                break;
+            }
+            
+        }
+        if(prime_num==1)
+        {
+            return num;
+        }
+        num++;        
+    }     
+} ORR
+int nextPrime(int n){
+  n++;
+   while(1)
+   {
+       int i;
+       for(i=2;i<n;i++)
+       {
+           if(n%i==0)
+           break;
+       }
+       if(i==n)
+       return n;
+       n++;
+   }
+    
+}
+***********GCD
+int gcd(int a, int b){
+
+    int min,i;
+    //code here to calculate and return gcd of a and b
+    if(a<b)
+    {
+        min=a;
+    }
+    else
+    {
+        min=b;
+    }
+    
+    for(i=min;i>=1;i--)
+    {
+        
+        if(a%i==0 && b%i==0)
+        {
+            return i;
+        }
+    }        
+}
+ORR
+int gcd(int a, int b){
+    int gcd,i;
+    for(i=1;i<=a;i++)
+        {
+            if(a%i == 0 && b%i == 0)
+                gcd=i;
+        }
+    return gcd;    
+        
+}
+*************LCM
+ int max=0;
+    if(a>b)
+    {
+        max=a;
+    }
+    else
+    {
+        max=b;
+    }
+    int prod=a*b;
+    
+    for(int i=max;i<=prod;i++)
+    {
+        if(i%a==0 && i%b==0)
+        {
+            return i;
+        }
+    }
+ORR
+int max(int num1, int num2)
+{
+    return (num1 > num2 ) ? num1 : num2;
+}
+
+int LCM(int a, int b){
+
+    int x = max(a, b);
+    int y = a * b;
+    int ans = x;
+    for(int i = x; i <= y; i++){
+        if(i % a == 0 && i % b == 0){
+            ans = i;
+            break;
+        }
+    }
+    return ans;
+}
+************FIBONACCI NO.
+ int a=1;
+    int b=1;
+    int c=0;
+    
+    for(int j=2;j<n;j++)
+    {
+        c=a+b;
+        a=b;
+        b=c;
+    }
+    return c;
+ORR
+if (n<=2){
+        return 1;
+    }
+**********RECURSIVE CALLS
+ if(n<=1)
+    {
+        return n;
+    }
+    return fibonacci(n-1)+fibonacci(n-2);
+
+**************COUNT DIGITS
+ int digits = 0;
+    if(n ==0) return digits;
+    while(n)
+    {
+        digits++;
+        n/= 10;
+    }
+    return digits;
+
