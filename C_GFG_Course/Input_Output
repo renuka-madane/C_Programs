@@ -18,15 +18,35 @@ including the null terminator (\0). This safety feature makes it a preferred cho
 By default, %f prints 6 digits after the decimal point.
 In the case of long double values, the format specifier becomes %Lf for fixed-point representation.
 
+gets is risky to use. -- refer
+Use of gets() generates a risk of an overflow of allocated buffer,this happens because the function gets doesnt know the size of the buffer
+and continues reading untill it finds newline or EOF so it may overflow the bounds of the buffer it was given.
+
 printf("%width.precision", args...)
-********************************************Codes FOR INPUT_OUTPUT_IN_C  module
+************************Codes FOR INPUT_OUTPUT_IN_C  module
+************QUIZES
+#include <stdio.h>
+int main(void) 
+{
+   int x = printf("GeeksQuiz");
+   printf("%d", x);
+   return 0;
+}  GeeksQuiz9
+....................
+#include<stdio.h>
+int main()
+{
+    printf("%d", printf("%d", 1234));
+    return 0;
+} 12344
+......................
 int main()
 {
     printf("%c ", "GeeksQuiz"[5]);
     return 0;
 }
 ans- Q -- broken down as *("GeeksQuiz"+5) adding 5 to base address of the string increases pointer 
-=====================
+....................
 void myStrcat(char *a, char *b)
 {
     int m = strlen(a);
@@ -35,7 +55,6 @@ void myStrcat(char *a, char *b)
     for (i = 0; i <= n; i++)
        a[m+i]  = b[i];
 }
-
 int main()
 {
     char str1[100] = "Geeks ";
@@ -45,7 +64,7 @@ int main()
     return 0;
 }
 REFER -- https://www.geeksforgeeks.org/storage-for-strings-in-c/
-===================
+......................................
 #include <stdio.h>
 void fun1(char *s1, char *s2) {
   char *temp;
@@ -70,7 +89,7 @@ int main() {
 ANSWER---  Hi Bye Bye Hi --- >>in 1st function --Everything is local here. So, once function completes its execution all modification
 go in vain.This will retain modification and swap pointers of string.
 So output would be Hi Bye Bye Hi
-==============================
+......................................
 int fun1(int n) {
     static int i= 0;
     if (n > 0) {
@@ -88,8 +107,8 @@ int fun2(int n) {
 return (i);
 }
 please refer https://gateoverflow.in/333185/gate-cse-2020-question-46 for answer details.
-==================
-Refer Q-- https://gateoverflow.in/333183/gate-cse-2020-question-48
+........................
+
 int SomeFunction (int x, int y)
 {
     if ((x==1) || (y==1)) return 1;
@@ -97,10 +116,54 @@ int SomeFunction (int x, int y)
     if (x > y) return SomeFunction(x-y, y);
     if (y > x) return SomeFunction (x, y-x); 
 }  https://gateoverflow.in/357517/gate-cse-2021-set-2-question-23
-=============
-Refer-- https://gateoverflow.in/357488/gate-cse-2021-set-2-question-49
-==============
-https://brainly.com/question/40702914
-
+................................................
+#include <stdio.h>
+int foo(int x, int y, int q) 
+    {
+        if ((x<=0) && (y<=0))
+        return q;
+        if (x<=0)
+        return foo(x, y-q, q);
+        if (y<=0)
+        return foo(x-q, y, q);
+        return foo(x, y-q, q) + foo(x-q, y, q);
+    }
+int main( )
+{
+    int r = foo(15, 15, 10);
+    printf(“%d”, r);
+    return 0;
+}
+Refer-- https://gateoverflow.in/357488/gate-cse-2021-set-2-question-49 
+............
+int tob (int b, int* arr) {
+    int i;
+    for (i = 0; b>0; i++)  {
+        if (b%2)  arr [i] = 1;
+        else      arr[i] = 0;
+        b = b/2;
+    }
+    return (i);
+}
+int pp(int a, int b)  {
+    int  arr[20];
+    int i, tot = 1, ex, len;
+    ex = a;
+    len = tob(b, arr);
+    for (i=0; i<len ; i++) {
+         if (arr[i] ==1)
+             tot = tot * ex;
+         ex= ex*ex;
+    }
+return (tot) ;
+} 81  value returned by pp(3,4)  https://gateoverflow.in/333183/gate-cse-2020-question-48
+.........................
+#include <stdio.h>
+// Assume base address of "GeeksQuiz" to be 1000
+int main()
+{
+   printf(5 + "GeeksQuiz");
+   return 0;
+}  https://brainly.com/question/40702914
 
 
