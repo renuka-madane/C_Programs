@@ -1,0 +1,80 @@
+
+
+
+
+
+
+
+
+=================CODES/ QUIZ
+#include <stdio.h>
+int main()
+{
+    int i = 5;
+    printf("%d %d %d", i++, i++, i++);
+    return 0;
+} Compiler dependent  https://gateoverflow.in/336403/nielit-2017-july-scientist-b-it-section-b-32
+................
+#include <stdio.h>
+int main()
+{
+  printf("%d", main);  
+  return 0;
+}  ans -- address of main function -- name of the function is actually a pointer variable to the function and prints address of the function
+...............
+#include <stdio.h>
+int main()
+{
+    int (*ptr)(int ) = fun; // ptr is a pointer to function fun
+    (*ptr)(3); --fun called using pointer
+    return 0;
+}
+int fun(int n)
+{
+  for(;n > 0; n--)
+    printf("GeeksQuiz ");
+  return 0;
+}  compiler error, since fun is not declared / defined b4 its assinged to ptr
+..........
+#include<stdio.h>
+void dynamic(int s, ...)
+{
+    printf("%d", s);
+}
+int main()
+{
+    dynamic(2, 4, 6, 8);
+    dynamic(3, 6, 9);
+    return 0;
+} ... dots is known as ellipsis which is variable no. of arguments of the function
+https://www.tutorialspoint.com/cprogramming/c_variable_arguments.htm
+https://gateoverflow.in/336402/nielit-2017-july-scientist-b-it-section-b-33
+...........
+What is the meaning of using extern before function declaration? For example following function sum is made 
+extern extern int sum(int x, int y, int z) {     return (x + y + z); }
+a)Function is made globally available b)extern means nothing,
+sum() is same without extern keyword. c)Function need not to be declared before its use d)Function is made local to the file Correct
+answer is option 'B'. Can you explain this answer?
+Read more at: https://edurev.in/question/3274857/What-is-the-meaning-of-using-extern-before-function-declaration-For-example-following-function-sum-i
+https://edurev.in/question/3274857/What-is-the-meaning-of-using-extern-before-function-declaration-For-example-following-function-sum-i
+........................
+What is the meaning of using static before function declaration? 
+For example following function sum is made static static int sum(int x, int y, int z) 
+{     return (x + y + z); } a)Static means nothing, sum() is same without static keyword.
+b)Function need not to be declared before its use c)Access to static functions is restricted to the file where 
+they are declared d)Static functions are made inline Correct answer is option 'C'. Can you explain this answer?
+Read more at: https://edurev.in/question/3274850/What-is-the-meaning-of-using-static-before-function-declaration-For-example-following-function-sum-i
+
+.............
+#include "stdio.h"
+int main()
+{
+ int a = 10;
+ int b = 15;
+
+ printf("=%d",(a+1),(b=a+2));
+ printf(" %d=",b);
+
+ return 0;
+} ans -- =11 12== as per C std. a;; arg of printf are evaluated,even if they get printed or not, hence b=a+2 will be evaluated 
+and b will be 12 after 1st printf.
