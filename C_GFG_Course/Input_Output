@@ -165,5 +165,20 @@ int main()
    printf(5 + "GeeksQuiz");
    return 0;
 }  https://brainly.com/question/40702914
-
+........................
+int f(int n)
+{
+    if(n==0)
+    {
+        return n;
+    }
+    else
+    {
+        return n+f(n-2);
+    }    
+}
+int main() {
+    printf("%d",f(12));
+    return 0;
+}  https://gateoverflow.in/63119/ugc-net-cse-july-2016-part-2-question-15
 
