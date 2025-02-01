@@ -114,6 +114,19 @@ int main() {
     }
     return 0;
 }   https://gateoverflow.in/302796/gate-cse-2019-question-52
+..............
+int main() {
+    int x=1;
+    printf("%d",(*char(char *)&x));
+}   https://gateoverflow.in/213587/isro-cse-2018-question-1
+....................
+https://gateoverflow.in/213528/isro-cse-2018-question-60
+int main() {
+    int x=2,y=5;
+    if(x<y) return (x=(x+y));
+    else printf("z1");
+    printf("z2");
+}
 ====================================PROBLEMS
 Given a number n, find the first digit of the number.
 int quote=0;
