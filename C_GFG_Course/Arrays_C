@@ -51,3 +51,42 @@ int main()
     a[5][2][1] = 2;
     return 0;
 }  https://gateoverflow.in/45932/prog-which-of-the-following-will-print-the-value-2-for-the-above-code
+...............
+#include <stdio.h>
+#define SIZE(arr) sizeof(arr) / sizeof(*arr);
+void fun(int* arr, int n)
+{
+    int i;
+    *arr += *(arr + n - 1) += 10;
+}
+
+void printArr(int* arr, int n)
+{
+    int i;
+    for(i = 0; i < n; ++i)
+        printf("%d ", arr[i]);
+}
+
+int main()
+{
+    int arr[] = {10, 20, 30};
+    int size = SIZE(arr);
+    fun(arr, size);
+    printArr(arr, size);
+    return 0;
+} The crux of the question lies in the expression: *arr += *(arr + n - 1) += 10; The composite operator (here +=) has right to left associativity. 
+First 10 is added to the last element of the array. The result is then added to the first element of the array.
+.........
+# include <stdio.h>
+int main ()
+{
+        int i, j;
+        char a [2] [3] = {{'a', 'b', 'c'}, {'d', 'e', 'f'}};
+        char b [3] [2];
+        char *p = *b;
+        for (i = 0; i < 2; i++) {
+              for (j = 0; j < 3; j++) {
+              *(p + 2*j + i) = a [i] [j];
+              }
+        }
+} ---->> https://gateoverflow.in/3362/gate-it-2008-question-52
