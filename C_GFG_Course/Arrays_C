@@ -90,3 +90,14 @@ int main ()
               }
         }
 } ---->> https://gateoverflow.in/3362/gate-it-2008-question-52
+...........
+#include <stdio.h>
+
+int main()
+{
+   int i, j;
+        char a [2] [3] = {{'a', 'b', 'c'}, {'d', 'e', 'f'}};
+        char *ptr=*a;
+        printf("%p %c",ptr+2,*(ptr+2));
+} 0x7ffdad1912d4 c
+
