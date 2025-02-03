@@ -1,0 +1,53 @@
+
+
+
+
+
+
+
+==============CODES / QUIZES
+#include <stdio.h>
+
+int main()
+{
+	int arr[5];
+	
+	// Assume that base address of arr is 2000 and size of integer
+        // is 32 bit
+	arr++;
+	printf("%u", arr);
+	
+	return 0;
+} array name in C is implemented by constant pointer, its not possible to apply increment and decrement on constant types.
+................
+#include <stdio.h>
+
+int main()
+{
+    int arr[5];
+    // Assume base address of arr is 2000 and size of integer is 32 bit
+    printf("%u %u", arr + 1, &arr + 1);
+
+    return 0;
+} Name of array in C gives the address(except in sizeof operator) of the first element. Adding 1 to this address gives the address plus
+the sizeof type the array has. Applying the Address-of operator before the array name gives the address of the whole array.
+Adding 1 to this address gives the address plus the sizeof whole array.
+.......................
+int *A [10], B[10][10];  https://gateoverflow.in/893/gate-cse-2003-question-2
+.............
+int main()
+{
+    int i;
+    int arr[5] = {0};
+    for (i = 0; i <= 5; i++)
+        printf("%d ", arr[i]);
+    return 0;
+}  https://gateoverflow.in/153774/c-programming
+...............
+#include<stdio.h>
+int main()
+{
+    int a[10][20][30] = {0};
+    a[5][2][1] = 2;
+    return 0;
+}  https://gateoverflow.in/45932/prog-which-of-the-following-will-print-the-value-2-for-the-above-code
