@@ -1,0 +1,137 @@
+
+
+
+
+============CODES/QUIZES
+# include <stdio.h>
+void fun(int x)
+{
+    x = 30;
+}
+
+int main()
+{
+  int y = 20;
+  fun(y);
+  printf("%d", y);
+  return 0;
+}  20 since pass by value
+.................
+#include <stdio.h>
+
+int main()
+{
+    int arri[] = {1, 2 ,3};
+    int *ptri = arri;
+
+    char arrc[] = {1, 2 ,3};
+    char *ptrc = arrc;
+
+    printf("sizeof arri[] = %d ", sizeof(arri));
+    printf("sizeof ptri = %d ", sizeof(ptri));
+
+    printf("sizeof arrc[] = %d ", sizeof(arrc));
+    printf("sizeof ptrc = %d ", sizeof(ptrc));
+
+    return 0;
+} 12 4 3 4
+..................
+#include <stdio.h>
+
+int main()
+{
+    float arr[5] = {12.5, 10.0, 13.5, 90.5, 0.5};
+    float *ptr1 = &arr[0];
+    float *ptr2 = ptr1 + 3;
+
+    printf("%f ", *ptr2);
+    printf("%d", ptr2 - ptr1);
+
+   return 0;
+} https://gateoverflow.in/336400/nielit-2017-july-scientist-b-it-section-b-35
+When we add a value x to a pointer p, the value of the resultant expression is p + x*sizeof(*p) where sizeof(*p) means size of
+data type pointed by p. That is why ptr2 is incremented to point to arr[3] in the above code. Same rule applies for subtraction. 
+Note that only integral values
+..........
+int main()
+{
+ char *ptr = "GeeksQuiz";
+ printf("%c", *&*&*ptr);
+ return 0;
+} G https://www.geeksforgeeks.org/questions/c-int-main-char-ptr-geeksquiz-printfc/
+............
+#include <stdio.h>
+
+int main() {
+    char *ptr = "GeeksQuiz";
+ printf("%s", *&*&ptr);
+ return 0;
+} GeeksQuiz
+..............
+#include<stdio.h> 
+void f(int *p, int *q) 
+{ 
+  p = q; 
+  *p = 2; 
+} 
+int i = 0, j = 1; 
+int main() 
+{ 
+  f(&i, &j); 
+  printf("%d %d", i, j); 
+  getchar(); 
+  return 0; 
+} https://gateoverflow.in/2184/gate-cse-2010-question-11
+can be added or subtracted from a pointer. We can also subtract or compare two pointers of same type.
+............
+#include<stdio.h>
+int main()
+{
+    int a = 12;
+    void *ptr = (int *)&a;
+    printf("%d", *ptr);
+    getchar();
+    return 0;
+} https://gateoverflow.in/210387/c-programming
+.........
+#include <stdio.h>
+#define print(x) printf("%d ", x)
+int x;
+void Q(int z)
+{
+    z += x;
+    print(z);
+}
+void P(int *y)
+{
+    int x = *y + 2;
+    Q(x);
+    *y = x - 1;
+    print(x);
+}
+main(void)
+{
+    x = 5;
+    P(&x);
+    print(x);
+} https://gateoverflow.in/972/gate-cse-2003-question-89
+...........
+#include<stdio.h>
+void mystery(int *ptra, int *ptrb) 
+{
+   int *temp;
+   temp = ptrb;
+   ptrb = ptra;
+   ptra = temp;
+}
+int main() 
+{
+    int a=2016, b=0, c=4, d=42;
+    mystery(&a, &b);
+    if (a < c)
+       mystery(&c, &a);
+    mystery(&a, &d);
+    printf("%d", a);
+} https://gateoverflow.in/39642/gate-cse-2016-set-1-question-15
+...........
+int ( * f) (int * ) ;  https://www.geeksforgeeks.org/questions/what-does-the-following-c-statement-declare-1-mark-c/
