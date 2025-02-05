@@ -1,1 +1,42 @@
 
+
+
+==============CODES / PROBLEMS
+..............PATTERN SEARCHING IN STRING
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+   char s1[]="geelsforgejks";
+   char s2[]="geeks";
+   
+   int len_s1=strlen(s1);
+   int len_s2=strlen(s2);
+   int len=len_s1-len_s2;
+   int i,j;
+   int not_same=1;
+   for(i=0;i<=len;i++)
+   {
+       int not_same=1;
+       int a=i;
+       for(j=0;j<len_s2;j++)
+       {
+           if(s1[a]!=s2[j])
+           {
+               not_same==0;
+               break;
+           }
+           a++;
+       }
+       if(not_same==1)
+   {
+       printf("Pattern EXISTS.");
+   }
+   else
+   {
+       printf("Pattern DOES NOT EXISTS.");
+   }
+}
+
+       
+   }
