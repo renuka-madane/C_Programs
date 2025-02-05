@@ -135,3 +135,10 @@ int main()
 } https://gateoverflow.in/39642/gate-cse-2016-set-1-question-15
 ...........
 int ( * f) (int * ) ;  https://www.geeksforgeeks.org/questions/what-does-the-following-c-statement-declare-1-mark-c/
+.................
+https://gateoverflow.in/118335/gate-cse-2017-set-2-question-55
+int main() {    
+    char g[]="geeksforgeeks";
+    printf("%s",g+g[6]-g[8]);
+}
+...................
