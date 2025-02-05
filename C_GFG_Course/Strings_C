@@ -3,40 +3,101 @@
 
 ==============CODES / PROBLEMS
 ..............PATTERN SEARCHING IN STRING
-#include <stdio.h>
-#include <string.h>
-
-int main() {
-   char s1[]="geelsforgejks";
-   char s2[]="geeks";
-   
-   int len_s1=strlen(s1);
-   int len_s2=strlen(s2);
-   int len=len_s1-len_s2;
-   int i,j;
-   int not_same=1;
-   for(i=0;i<=len;i++)
-   {
-       int not_same=1;
-       int a=i;
-       for(j=0;j<len_s2;j++)
-       {
-           if(s1[a]!=s2[j])
-           {
-               not_same==0;
-               break;
-           }
-           a++;
-       }
-       if(not_same==1)
-   {
-       printf("Pattern EXISTS.");
-   }
-   else
-   {
-       printf("Pattern DOES NOT EXISTS.");
-   }
+# include<stdio.h>
+# include<string.h>
+# include<stdbool.h>
+ 
+bool search(char* s, char* p)
+{
+    int M = strlen(s);
+    int N = strlen(p);
+    int j;
+    for(int i = 0; i<M; i++)
+    {
+        int a=i;
+        for(j=0;j<N;j++)
+        {
+            if(p[j]==s[a])
+            {                
+                a++;
+            }
+            else
+            {                
+                break;
+            }            
+        }
+        if(j==N)
+        {
+            return 1;
+        }
+    }
+    return 0;
 }
-
-       
-   }
+int main()
+{
+    char s[] = "eeksgeeksfor";
+    char p[] = "geeks";
+    if(search(s,p)==1)
+    {
+        printf("PATTERN EXISTS.");
+    }
+    else
+    {
+        printf("PATTERN DOES NOT EXISTS.");
+    }    
+}
+....................ORR
+ int m=strlen(s);
+    int n=strlen(p);
+    int j;
+    
+    for(int i=0;i<=(m-n);i++)
+    {
+        int a=i;
+        
+        for(j=0;j<n;j++)
+        {
+            if(s[a]!=p[j])
+            {
+                break;
+            }
+            a++;
+        }
+        
+        if(j==n)
+        {
+            return i;
+        }
+    }
+    
+    return -1;
+........................CODE FOR REVERSE A STRING
+ int len=strlen(str);
+    
+    char new_string[15];
+    int k=0;
+    
+    for(int i=(len-1);i>=0;i--)
+    {
+        
+        new_string[k]=str[i];
+        k++;
+    }
+    new_string[len]='\0';
+    
+    printf("%s",new_string);
+ORR
+ char s[100];
+    scanf("%s", s);
+    char newString[100];
+    int l = strlen(s) - 1;
+    int i = 0;
+    while(s[i] != '\0')
+    {
+        newString[i] = s[l];
+        l--;
+        i++;
+    }
+    printf("%s", newString);
+    return 0;
+ORR
