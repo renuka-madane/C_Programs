@@ -107,5 +107,53 @@ ORR
     }
     printf("%s", newString);
     return 0;
-ORR
+...................
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+     char s[100];
+    scanf("%s", s);
+    char newString[100];
+    int l = strlen(s);
+    int i = 0;
+    while(l)
+    {
+        newString[i] = s[l-1];
+        l--;
+        i++;
+    }
+    printf("%s", newString);
+    return 0;
+}
+................ Check FOR PALINDROME
+char s[100];
+    scanf("%s", s);
+    char newString[100];
+    int l = strlen(s);
+    int i = 0;
+    while(l)
+    {
+        if(newString[i]!=s[l-1]);
+        {
+            printf("NOT A PALINDROME.");
+            break;
+        }
+        l--;
+        i++;
+        
+    }
+    printf("Yes");
+    return 0;
+...................ORR
+bool isPalindrome(char s[]) {
+    int n=strlen(s);
+    for(int i;i<=n/2;i++){
+        if (s[i]!=s[n-i-1]){
+            return false;
+        }
+    }
+    return true;
+}
 
