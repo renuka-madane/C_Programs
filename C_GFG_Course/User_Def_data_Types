@@ -1,0 +1,141 @@
+
+
+
+
+
+
+
+
+================CODES/Quizes
+#include‹stdio.h›
+int main()
+{
+    struct site
+    {
+        char name[] = "GeeksQuiz";
+        int no_of_pages = 200;
+    };
+    struct site *ptr;
+    printf("%d ", ptr->no_of_pages);
+    printf("%s", ptr->name);
+    getchar();
+    return 0;
+}
+-----------when we declare a structure or union we actually declare a new data type suitable for our purpose so we cannot initalize values
+as its not variable declaration but data type declaration.
+...........
+struct node 
+{ 
+   int i; 
+   float j; 
+}; 
+struct node *s[10]; ---- it defines an array each element of which is a pointer to a structure of type node.
+....................
+#include<stdio.h> 
+struct st 
+{ 
+    int x; 
+    struct st next; 
+}; 
+  
+int main() 
+{ 
+    struct st temp; 
+    temp.x = 10; 
+    temp.next = temp; 
+    printf("%d", temp.next.x); 
+    return 0; 
+} a structure cannot contain a member of its own type, since it becomes impossible for compiler to knw size of such structures. Although pointers of
+of same type can be a member, because of pointers of all types are of same size and compiler can calculate size of struct.
+........................
+union test
+{
+    int x;
+    char arr[4];
+    int y;
+};
+
+int main()
+{
+    union test t;
+    t.x = 0;
+    t.arr[1] = 'G';
+    printf("%s", t.arr);
+    return 0;
+}---- since x and arr[4[ share the same memory , when we set x as 0, all characters of arr are set 0. when we do  t.arr[1] = 'G'; arr[[ becomes
+0G00,when we print using %s , printf function starts printing from 1st character, and keeps printing till it meets 0,since the 1st character itself
+is 0 ,nothing is printed.
+***********************
+# include <iostream>
+# include <string.h>
+struct Test
+{
+  char str[20];
+};
+int main()
+{
+  struct Test st1, st2;
+  strcpy(st1.str, "GeeksQuiz");
+  st2 = st1;
+  st1.str[0] = 'S';
+  cout << st2.str;
+  return 0;
+} Array members are deeply copied when a struct variable is assigned to another one.
+REFER-- https://www.geeksforgeeks.org/are-array-members-deeply-copied/
+*********************
+#include<stdio.h>
+struct Point
+{
+  int x, y, z;
+};
+
+int main()
+{
+  struct Point p1 = {.y = 0, .z = 1, .x = 2};
+  printf("%d %d %d", p1.x, p1.y, p1.z);
+  return 0;
+}  designated initialization.
+************************
+typedef struct Student
+{
+ int rollno;
+ int total;
+} Student;
+
+Student s1;
+struct Student s2; At first, it may seem that having same ‘struct tag name’ and ‘typedef name’ would cause issue here.
+But it’s perfectly fine for both of them having same name. s1 is defined using typedef name Student while s2 is defined using struct tag 
+name Student.
+***********************
+#include <stdio.h>
+int main()
+{
+    struct {
+        int i;
+        char c;
+    } myVar = {.i = 100, .c = 'A'};    
+    printf("%d %c", myVar.i, myVar.c);  
+} 100 A initialization of a variable of complete data type can be done at the time of definition itself. Also, struct fields/members can be
+initialized out of order using field name and using dot operator without myVar is ok as per C. Correct answer is D.
+****************************
+int main()
+{
+ struct {int a[2];} arr[] = {{1},{2}};
+ printf("%d %d %d %d",arr[0].a[0],arr[0].a[1],arr[1].a[0],arr[1].a[1]);
+}  https://www.geeksforgeeks.org/questions/pick-the-best-statement-for-the-below-program-c/
+https://stackoverflow.com/questions/58763109/can-somebody-simplify-the-below-code-struct-int-a2-arr-1-2
+https://stackoverflow.com/questions/58763109/can-somebody-simplify-the-below-code-struct-int-a2-arr-1-2
+*******************************
+struct {int a[2];} arr[] = {1,2};
+https://www.geeksforgeeks.org/quizzes/c-quiz-112-gq/
+****************
+structaddr {
+    char city[10];
+    char street[30];
+    int pin;
+};
+struct {
+    char name[30];
+    int gender;
+    struct addr locate;
+} person, *kd = &person;  https://gateoverflow.in/213586/isro-cse-2018-question-2
