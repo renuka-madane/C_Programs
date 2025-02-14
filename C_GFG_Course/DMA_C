@@ -1,0 +1,42 @@
+
+
+
+
+*************************CODES/QUIZ
+[PI] int * g (void) 
+{ 
+  int x= 10; 
+  return (&x); 
+}  
+  
+[P2] int * g (void) 
+{ 
+  int * px; 
+  *px= 10; 
+  return px; 
+} 
+  
+[P3] int *g (void) 
+{ 
+  int *px; 
+  px = (int *) malloc (sizeof(int)); 
+  *px= 10; 
+  return px; 
+}  https://gateoverflow.in/736/gate-cse-2001-question-2-18
+......................
+# include<stdio.h>
+# include<stdlib.h>
+ 
+void fun(int *a)
+{
+    a = (int*)malloc(sizeof(int));
+}
+ 
+int main()
+{
+    int *p;
+    fun(p);
+    *p = 6;
+    printf("%d",*p);
+    return(0);
+}
