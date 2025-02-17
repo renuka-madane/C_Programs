@@ -1,0 +1,51 @@
+
+
+
+
+
+
+==============CODES/QUIZES
+int arr[50] = {0,1,2,[47]=47,48,49};
+Refer -- https://www.geeksforgeeks.org/questions/pick-the-best-statement-for-the-below-c-int/
+................
+char a[100][100];
+Refer-- https://gateoverflow.in/838/gate-cse-2002-question-2-8
+.....................
+#include "stdio.h"
+ 
+void fun(int n)
+{
+   int idx;
+   int arr1[n] = {0};
+   int arr2[n];
+ 
+   for (idx=0; idx<n; idx++)
+       arr2[idx] = 0;    
+}
+ 
+int main()
+{
+   fun(4);
+   return 0;
+} Refer-- https://www.geeksforgeeks.org/quizzes/c-quiz-111-gq/
+..................
+#include <stdio.h>
+
+int main()
+{
+    int a[][] = {{1,2},{3,4}};
+    int i, j;
+    for (i = 0; i < 2; i++)
+        for (j = 0; j < 2; j++)
+            printf("%d ", a[i][j]);
+    return 0;
+}  https://www.geeksforgeeks.org/questions/c-include-stdioh-int-main-int-a-1/
+................
+#include<stdio.h>
+int main()
+{
+    int a[10][20][30] = {0};
+    a[5][2][1] = 2;
+    return 0;
+} https://gateoverflow.in/45932/prog-which-of-the-following-will-print-the-value-2-for-the-above-code
+....................
