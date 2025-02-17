@@ -49,3 +49,31 @@ int main()
     return 0;
 } https://gateoverflow.in/45932/prog-which-of-the-following-will-print-the-value-2-for-the-above-code
 ....................
+#include "stdio.h"
+
+int size = 4;
+int arr[size];
+int main()
+{
+ if(arr[0])
+  printf("Initialized to ZERO");
+ else
+  printf("Not initialized to ZERO");
+
+ return 0;
+} An array whose size is specified as variable can’t be defined out any function. 
+It can be defined only inside a function. So putting arr[size] outside main() would result in compile error. Answer is C.
+.............................
+Which of the following is true about arrays in C?
+https://www.geeksforgeeks.org/quizzes/arrays-pointers-gq/?page=4 Q34
+.....................
+# include <stdio.h>
+int main ()
+{
+    char a [6] = "world";
+    int i, j;
+    for (i = 0, j = 5; i < j; a [i++] = a [j--]);
+    printf ("%s\\n", a);
+}
+ /* Add code here. Remove these lines if not writing code */
+
