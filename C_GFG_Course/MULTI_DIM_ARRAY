@@ -76,4 +76,7 @@ int main ()
     printf ("%s\\n", a);
 }
  /* Add code here. Remove these lines if not writing code */
+For every type T except void and function type there can be an array of T.
+........................
+https://www.geeksforgeeks.org/quizzes/isro-cs-2013/
 
