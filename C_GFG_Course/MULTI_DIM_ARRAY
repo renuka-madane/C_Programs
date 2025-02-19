@@ -74,9 +74,12 @@ int main ()
     int i, j;
     for (i = 0, j = 5; i < j; a [i++] = a [j--]);
     printf ("%s\\n", a);
-}
+} REFER-->> https://gateoverflow.in/3359/gate-it-2008-question-49
+........................
  /* Add code here. Remove these lines if not writing code */
 For every type T except void and function type there can be an array of T.
 ........................
+Let A(1:8, -5:5, -10:5) be a three dimensional array. How many elements are there in the array A?
 https://www.geeksforgeeks.org/quizzes/isro-cs-2013/
+REFER --->> https://gateoverflow.in/43751/isro-2013-1
 
