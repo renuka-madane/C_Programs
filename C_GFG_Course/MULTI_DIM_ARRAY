@@ -1,9 +1,59 @@
+=====================CODES/PROBLEMS
+Find Transpose of a Matrix
 
+ int temp[N][N],i,j;
+    
+    for(i=0;i<N;i++)
+    {
+        for(j=0;j<N;j++)
+        {
+            temp[i][j]=matrix[j][i];
+        }
+    }
+    i=0;j=0;
+    for(i=0;i<N;i++)
+    {
+        for(j=0;j<N;j++)
+        {
+            matrix[i][j]=temp[i][j];
+        }
+    }
+**************ORR
+void swap(int *xp, int *yp) 
+{ 
+    int temp = *xp; 
+    *xp = *yp; 
+    *yp = temp; 
+} 
 
-
-
-
-
+void transpose(int N, int matrix[][N])
+{ 
+    for (int i = 0; i < N; i++) 
+        for (int j = i+1; j < N; j++) 
+            swap(&matrix[i][j], &matrix[j][i]); 
+} 
+********************ORR
+for(int i = 0; i < N; i++)
+    {
+        for(int j = i + 1; j < N; j++)
+        {
+            int temp = matrix[i][j];
+            matrix[i][j] = matrix[j][i];
+            matrix[j][i] = temp;
+        }
+    }
+..........................Multiply Matrices
+for(int i=0;i<N;i++)
+      {
+          for(int j=0;j<N;j++)
+          {
+              C[i][j]=0;
+              for(int k=0;k<N;k++)
+              {
+                  C[i][j]=C[i][j]+(A[i][k]*B[k][j]);
+              }
+          }
+      }
 ==============CODES/QUIZES
 int arr[50] = {0,1,2,[47]=47,48,49};
 Refer -- https://www.geeksforgeeks.org/questions/pick-the-best-statement-for-the-below-c-int/
