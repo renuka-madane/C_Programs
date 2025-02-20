@@ -1,11 +1,34 @@
-
-
-
-
-
-
-
-
+Self Referential structures are those structures that have one or more pointers which point to the same type of structure, as their member. 
+=======================CODES / PROBLEMS
+Self referential structures struct node{
+    int data;
+    struct node *next;
+};
+.............Maximum Pairwise Computed Value
+int i,max=0,max_height;
+    
+    for(i=0;i<n;i++)
+    {
+        max_height=arr[i].feet*12+arr[i].inches;
+        
+        if(max_height>max)
+        {
+            max=max_height;
+        }
+    }
+    return max;
+........................Your have to create Binary Tree struct NODE. 
+In the Binary Tree you should have members with one as double data and the other as union containing left and right pointers.
+struct NODE{
+    double data;
+    union{
+    struct{
+        struct Node *left;
+        struct Node *right;
+        }
+    }
+        
+};
 ================CODES/Quizes
 #include‹stdio.h›
 int main()
