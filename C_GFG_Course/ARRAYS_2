@@ -1,0 +1,36 @@
+
+
+
+================PROBLEMS
+FIND DISTINCT ELMENTS IN AN ARRAY
+int distinct(int arr[], int n) {
+    int count = 0;
+   
+    for(int i = 0;i<n;i++)
+    {
+         int isdistinct = 1;
+         for(int j=i+1;j<n;j++)
+        {
+            if(arr[i]==arr[j])
+            {
+                isdistinct=0;
+                break;
+            }
+            
+        }
+        
+        if(isdistinct==1)
+        {
+             count++;
+        }
+    }
+    
+    return count;
+    // code here
+}
+int main()
+{
+    int arr[]={2,5,5,5,5,5,8,5,8,9};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    printf("%d",distinct(arr,n));
+}
