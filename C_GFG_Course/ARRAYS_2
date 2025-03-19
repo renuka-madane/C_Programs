@@ -165,3 +165,102 @@ int main()
         printf("%d ",arr[i]);
     }
 }
+******************** CHECK IS ARRAY SORTED RECURSIVE APPROACH
+#include <stdio.h>
+int arraySortedOrNot(int arr[],int n)
+{
+    static int i;
+    if(n==0 || n==1)
+    {
+        return 1;
+    }
+    //if above condiiton fails then last pair was sorted , keep on recursive calls    
+    return arr[n-1]>=arr[n-2] && arraySortedOrNot(arr,n-1);    
+
+ORR  // Unsorted pair found (Equal values allowed)
+    if (arr[n - 1] < arr[n - 2])
+        return 0;
+
+    // Last pair was sorted
+    // Keep on checking
+    return arraySortedOrNot(arr, n - 1);
+}
+int main()
+{
+    int arr[] = { 20, 23, 23, 45, 50, 88 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+    if (arraySortedOrNot(arr, n))
+        printf("Yes\n");
+    else
+        printf("No\n");       
+        
+}
+****************************REVERSE AN ARRAY
+#include <stdio.h>
+int ReverseArr(int arr[],int n)
+{
+    int start=0,end=n-1,temp;    
+    while(start<=end)
+    {
+        temp=arr[start];
+        arr[start]=arr[end];
+        arr[end]=temp;
+        start++;
+        end--;
+    }    
+}
+void PrintArr(int arr[],int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ",arr[i]);
+    }    
+}
+int main()
+{
+    int arr[] = { 20, 23, 3, 45, 50, 88 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+    printf("Before reversing.");
+    PrintArr(arr,n);
+    printf("\n");
+    ReverseArr(arr,n);
+    printf("After reversing.");
+    PrintArr(arr,n);             
+}
+==============RECURSIVE APPROACH
+#include <stdio.h>
+int ReverseArr(int arr[],int n,int start, int end)
+{   
+    int temp;    
+    if(start>end)
+    {
+        return 0;
+    }
+    while(start<=end)
+    {
+        temp=arr[start];
+        arr[start]=arr[end];
+        arr[end]=temp;
+        start++;
+        end--;
+    }
+    return ReverseArr(arr,n-1,start++,end--);    
+}
+void PrintArr(int arr[],int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ",arr[i]);
+    }    
+}
+int main()
+{
+    int arr[] = { 20, 23, 3, 45, 50, 88 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+    printf("Before reversing.");
+    PrintArr(arr,n);
+    printf("\n");    
+    ReverseArr(arr,n,0,n-1);
+    printf("After reversing.");
+    PrintArr(arr,n);    
+}
