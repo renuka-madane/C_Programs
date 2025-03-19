@@ -264,3 +264,15 @@ int main()
     printf("After reversing.");
     PrintArr(arr,n);    
 }
+**********************SECOND LARGEST ELEMENT
+#include <stdio.h>
+int SecondLargest(int arr[],int n)
+{   
+   int max=arr[0];      
+}
+int main()
+{
+    int arr[] = { 20, 23, 3, 45, 50, 88 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+    SecondLargest(arr,n);   
+}
