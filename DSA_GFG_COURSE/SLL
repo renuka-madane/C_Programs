@@ -1,0 +1,66 @@
+...........................CREATING SLL, ADD NODE AT START AND END OF SLL
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+int main()
+{
+    struct node *head,*mid1,*mid2,*mid3,*last;
+    head=(struct node*)malloc(sizeof(struct node));
+    mid1=(struct node*)malloc(sizeof(struct node));
+    mid2=(struct node*)malloc(sizeof(struct node));
+    mid3=(struct node*)malloc(sizeof(struct node));
+    last=(struct node*)malloc(sizeof(struct node));
+    
+    head->data=10;
+    mid1->data=20;
+    mid2->data=30;
+    mid3->data=40;
+    last->data=50;    
+    head->next=mid1;
+    mid1->next=mid2;
+    mid2->next=mid3;
+    mid3->next=last;
+    last->next=NULL;    
+    struct node*temp=head;
+    printf("OG LINKED LIST.");
+    while(temp!=NULL)
+    {
+        printf("%d->",temp->data);
+        temp=temp->next;
+    }    
+    struct node *NewNode=(struct node*)malloc(sizeof(struct node));
+    NewNode->data=66;
+    NewNode->next=head;
+    head=NewNode;
+    printf("\n");
+    printf("LL after adding new node at the starting.");
+    temp=head;
+    while(temp!=NULL)
+    {
+        printf("%d->",temp->data);
+        temp=temp->next;
+    }
+    printf("\n");
+    printf("LL after adding new node at END.");
+    struct node *NewNode_end=(struct node*)malloc(sizeof(struct node));
+    NewNode_end->data=33;    
+    temp=head;    
+    while(temp->next!=NULL)
+    {
+        temp=temp->next;
+    }
+    temp->next=NewNode_end;
+    NewNode_end->next=NULL;
+    
+    struct node *temp2=head;
+    while(temp2!=NULL)
+    {
+        printf("%d->",temp2->data);
+        temp2=temp2->next;
+    }   
+    
+}
