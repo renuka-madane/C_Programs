@@ -64,3 +64,61 @@ int main()
     }   
     
 }
+.................INSERT AT GIVEN POS
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+int main()
+{
+    struct node *head,*mid1,*mid2,*mid3,*last;
+    head=(struct node*)malloc(sizeof(struct node));
+    mid1=(struct node*)malloc(sizeof(struct node));
+    mid2=(struct node*)malloc(sizeof(struct node));
+    mid3=(struct node*)malloc(sizeof(struct node));
+    last=(struct node*)malloc(sizeof(struct node));
+    
+    head->data=10;
+    mid1->data=20;
+    mid2->data=30;
+    mid3->data=40;
+    last->data=50;
+    
+    head->next=mid1;
+    mid1->next=mid2;
+    mid2->next=mid3;
+    mid3->next=last;
+    last->next=NULL;
+    
+    struct node*temp=head;
+    printf("OG LINKED LIST.");
+    while(temp!=NULL)
+    {
+        printf("%d->",temp->data);
+        temp=temp->next;
+    }
+    
+    int pos=4;
+    struct node *NewNode=(struct node*)malloc(sizeof(struct node));
+    temp=head;
+    
+    while(pos-2)
+    {
+        temp=temp->next;
+        pos--;
+    }
+    NewNode->data=44;
+    NewNode->next=temp->next;
+    temp->next=NewNode;
+    struct node*temp2=head;
+    printf(" ADD AT POS LINKED LIST.");
+    while(temp2!=NULL)
+    {
+        printf("%d->",temp2->data);
+        temp2=temp2->next;
+    }
+    
+}
