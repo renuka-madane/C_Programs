@@ -259,5 +259,42 @@ int main()
         printf("%d->",temp3->data);
         temp3=temp3->next;
     }
-    
+     printf("To count the no. of nodes.");
+    temp=head;
+    int count=1;
+    while(temp->next!=NULL)
+    {
+        temp=temp->next;
+        count++;
+    }
+    printf("%d ",count);
 }
+printf("To search in a LL.");
+    temp=head;
+    int count=40;
+    while(temp->next!=NULL)
+    {
+        if(temp->data=count)
+        {
+            printf("YES.");
+            break;
+        }
+    }
+ printf("To delete a node  in a LL.");
+     struct node *curr;
+    temp=head;
+    int pos=3;
+    while(pos-1)
+    {
+        curr=temp;
+        temp=temp->next;
+        pos--;
+    }
+    curr->next=temp->next;
+    free(temp);
+    struct node *temp1=head;
+    while(temp1!=NULL)
+    {
+        printf("%d ",temp1->data);
+        temp1=temp1->next;
+    }
