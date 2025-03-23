@@ -298,3 +298,58 @@ printf("To search in a LL.");
         printf("%d ",temp1->data);
         temp1=temp1->next;
     }
+******************************TO CHECK IF LL IS SORTED.
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+
+int main()
+{
+   struct node *head,*mid1,*mid2,*mid3,*last;
+   head=(struct node*)malloc(sizeof(struct node));
+   mid1=(struct node*)malloc(sizeof(struct node));
+   mid2=(struct node*)malloc(sizeof(struct node));
+   mid3=(struct node*)malloc(sizeof(struct node));
+   last=(struct node*)malloc(sizeof(struct node));   
+   head->data=10;
+   mid1->data=20;
+   mid2->data=3;
+   mid3->data=40;
+   last->data=50;   
+   head->next=mid1;
+   mid1->next=mid2;
+   mid2->next=mid3;
+   mid3->next=last;   
+   struct node *temp;
+   temp=head;
+   while(temp!=NULL)
+   {
+       printf("%d->",temp->data);
+       temp=temp->next;
+   }
+   int is_sorted=1;   
+   temp=head;
+   printf("\n");
+   while(temp->next!=NULL&& temp!=NULL)
+   {
+       if(temp->next->data<temp->data)
+       {
+           is_sorted=0;
+           
+       }
+       temp=temp->next;
+   }   
+   if(is_sorted==1)
+   {
+       printf("LL is sorted.");
+   }
+   else
+   {
+       printf("LL is not sorted.");
+   }  
+   
+}
