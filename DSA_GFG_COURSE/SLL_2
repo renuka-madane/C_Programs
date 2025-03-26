@@ -1,0 +1,118 @@
+********************SEARCH KEY IN LL RECURSIVE
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+struct node{
+    int data;
+    struct node *next;
+};
+int LinkedSingly(struct node *head,int n)
+{
+     struct node *temp=head;
+    //Base case 
+    if(head==NULL)
+    {
+        return 0;
+    }
+    
+    if(temp->data==n)
+    {
+        return 1;
+    }
+    
+    return LinkedSingly(temp->next,n);
+    
+}
+int main()
+{
+    struct node *head,*mid1,*mid2,*mid3,*last;
+    head=(struct node*)malloc(sizeof(struct node));
+    mid1=(struct node*)malloc(sizeof(struct node));
+    mid2=(struct node*)malloc(sizeof(struct node));
+    mid3=(struct node*)malloc(sizeof(struct node));
+    last=(struct node*)malloc(sizeof(struct node));
+    
+   head->data=10;
+   mid1->data=20;
+   mid2->data=30;
+   mid3->data=40;
+   last->data=50;
+    head->next=mid1;
+    mid1->next=mid2;
+    mid2->next=mid3;
+    mid3->next=last;
+    last->next=NULL;
+    LinkedSingly(head,40)?printf("Key is present."):printf("Key is absent.");   
+}
+
+******************** REVERSE LL RECURSIVELY
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+struct node{
+    int data;
+    struct node *next;
+};
+
+int RecursiveReverse(struct node **head)
+{
+     //base case
+     if(*head==NULL)
+     {
+         return 0;
+     }
+     
+      //Divide the list into 2 parts, head and then rest of the List
+     struct node *first=*head,*rest=first->next;
+     
+    /* List has only one node */
+    if(rest==NULL)
+    {
+        return 0;
+    }
+     
+    //Reverse rest of the list and put first element at the end
+    printf("%d",rest->data);
+     printf("\n");
+    RecursiveReverse(&rest);
+     //printf("%d",rest->data);
+    first->next->next=first;
+    first->next=NULL;
+    
+    //fix the head pointer
+    *head=rest;
+   
+    
+}
+int main()
+{
+    struct node *head,*mid1,*mid2,*mid3,*last;
+    head=(struct node*)malloc(sizeof(struct node));
+    mid1=(struct node*)malloc(sizeof(struct node));
+    mid2=(struct node*)malloc(sizeof(struct node));
+    mid3=(struct node*)malloc(sizeof(struct node));
+    last=(struct node*)malloc(sizeof(struct node));
+    
+   head->data=10;
+   mid1->data=20;
+   mid2->data=30;
+   mid3->data=40;
+   last->data=50;
+    head->next=mid1;
+    mid1->next=mid2;
+    mid2->next=mid3;
+    mid3->next=last;
+    last->next=NULL;
+    RecursiveReverse(&head);
+    
+    struct node *temp=head;
+    
+    while(temp!=NULL)
+    {
+        printf("%d->",temp->data);
+        temp=temp->next;
+    }
+   
+}
