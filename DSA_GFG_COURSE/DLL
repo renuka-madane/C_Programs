@@ -444,3 +444,80 @@ int main()
         t2=t2->next;        
     }   
 }
+*****************Given a doubly-linked list, a position p, and an integer x. The task is to add a new node with value x at the position 
+just after pth node in the doubly linked list and return the head of the updated list.
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+struct node
+{
+    int data;
+    struct node *prev,*next;
+};
+int main()
+{
+    struct node *head,*mid1,*mid2,*mid3,*last;
+    head=(struct node*)malloc(sizeof(struct node));
+    mid1=(struct node*)malloc(sizeof(struct node));
+    mid2=(struct node*)malloc(sizeof(struct node));
+    mid3=(struct node*)malloc(sizeof(struct node));
+    last=(struct node*)malloc(sizeof(struct node));
+    
+    head->data=10;
+    mid1->data=20;
+    mid2->data=30;
+    mid3->data=40;
+    last->data=50; 
+    
+    head->next=mid1;
+    head->prev=NULL;
+    mid1->next=mid2;
+    mid1->prev=head;
+    mid2->next=mid3;
+    mid2->prev=mid1;
+    mid3->next=last;
+    mid3->prev=mid2;
+    last->next=NULL;
+    last->prev=mid3;
+    struct node *temp=head;
+    printf("OG DLL is --");
+    while(temp!=NULL)
+    {
+        printf("%d->",temp->data);
+        temp=temp->next;
+    }
+    printf("\n");
+    printf("Add a new element in a sorted DLL--");
+    
+     struct node *NewNode=(struct node*)malloc(sizeof(struct node));
+     NewNode->data=5;
+     int pos=0;
+     
+     temp=head;
+     while(pos>-1 && temp->next!=NULL)
+     {
+         temp=temp->next;
+         pos--;
+     }
+      //this if case to cover the cond that the new node to be added at last of DLL
+     if(temp->next==NULL)
+     {
+         temp->next=NewNode;
+         NewNode->prev=temp;
+         NewNode->next=NULL;
+     }
+     else // CASE-- new node to be added in between of DLL.
+     {
+         temp->prev->next=NewNode;
+     temp->prev=NewNode;
+     NewNode->next=temp;         
+     }
+    struct node *t2=head;
+    while(t2 != NULL)
+    {
+        printf("%d->",t2->data);
+        t2=t2->next;
+        
+    }     
+    
+}
