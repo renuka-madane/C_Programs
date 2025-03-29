@@ -521,3 +521,67 @@ int main()
     }     
     
 }
+***********************REVERSE DLL
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+struct node
+{
+    int data;
+    struct node *prev,*next;
+};
+int main()
+{
+    struct node *head,*mid1,*mid2,*mid3,*last;
+    head=(struct node*)malloc(sizeof(struct node));
+    mid1=(struct node*)malloc(sizeof(struct node));
+    mid2=(struct node*)malloc(sizeof(struct node));
+    mid3=(struct node*)malloc(sizeof(struct node));
+    last=(struct node*)malloc(sizeof(struct node));
+    
+    head->data=10;
+    mid1->data=20;
+    mid2->data=30;
+    mid3->data=40;
+    last->data=50; 
+    
+    head->next=mid1;
+    head->prev=NULL;
+    mid1->next=mid2;
+    mid1->prev=head;
+    mid2->next=mid3;
+    mid2->prev=mid1;
+    mid3->next=last;
+    mid3->prev=mid2;
+    last->next=NULL;
+    last->prev=mid3;
+    struct node *temp=head;
+    printf("OG DLL is --");
+    while(temp!=NULL)
+    {
+        printf("%d->",temp->data);
+        temp=temp->next;
+    }
+    printf("\n");
+    printf("Reverse the DLL nodes--");    
+   struct node *ptr1=head,*ptr2=ptr1->next;   
+   ptr1->next=NULL;
+   ptr1->prev=ptr2;
+   
+   while(ptr2!=NULL)
+   {
+       ptr2->prev=ptr2->next;
+       ptr2->next=ptr1;
+       ptr1=ptr2;
+       ptr2=ptr2->prev;
+   }
+   head=ptr1;
+    struct node *t3=head;
+    
+    while(t3!=NULL)
+    {
+        printf("%d->",t3->data);
+        t3=t3->next;
+    } 
+    
+}
