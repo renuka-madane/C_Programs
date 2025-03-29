@@ -56,9 +56,28 @@ int main()
         temp=temp->next;
     }while(temp!=head);
     
-}
-
-
+}=============ADD NEW NODE AT END
+ printf("\n");
+     printf("Add new node at END of CLL--");
+    
+    struct node *newNode=(struct node*)malloc(sizeof(struct node));
+    newNode->data=66;
+    
+    
+    struct node *curr=head;
+    while(curr->next!=head)
+    {
+        curr=curr->next;
+    }
+    curr->next=newNode;
+    newNode->next=head;
+    
+    temp=head;
+    do
+    {
+        printf("%d->",temp->data);
+        temp=temp->next;
+    }while(temp!=head);
 
 ************************CLL REVERSAL ITERATIVE
 #include <stdio.h>
