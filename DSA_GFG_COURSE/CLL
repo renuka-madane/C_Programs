@@ -144,3 +144,65 @@ struct node *t3=head;
     }while(t3!=head);
     
 }
+************************DELETE 1ST NODE
+printf("\n");
+     printf("Delete 1st node of CLL--");
+     
+     struct node *t2=head;
+     
+     
+     struct node *t3=head;
+     while(t3->next!=head)
+     {
+         t3=t3->next;
+     }
+    t3->next=head->next;
+    head=head->next;
+    free(t2);
+    struct node *t1=head;
+   do
+    {
+        printf("%d->",t1->data);
+        t1=t1->next;
+    } while(t1!=head);
+************************DELETE LAST NODE
+ printf("\n");
+     printf("Delete LAST node of CLL--");
+     struct node *t3=head;
+     while(t3->next->next!=head)
+     {
+         t3=t3->next;
+     }
+    free(t3->next);
+    t3->next=head;
+    struct node *t1=head;
+   do
+    {
+        printf("%d->",t1->data);
+        t1=t1->next;
+    } while(t1!=head);
+********************ADD NEW NODE IN SORTED WAY
+ printf("\n");
+     printf("Adding new node in sorted way in CLL--");
+     struct node *NewNode=(struct node*)malloc(sizeof(struct node));
+     NewNode->data=33;
+     
+     struct node *prev=head;
+     struct node *curr=head->next;
+     while(curr->next!=head)
+     {
+         if(curr->data>NewNode->data)
+         {
+              NewNode->next=prev->next;
+              prev->next=NewNode;
+            
+         }
+         curr=curr->next;
+         prev=prev->next;
+     }
+    temp=head;
+   do
+    {
+        printf("%d->",temp->data);
+        temp=temp->next;
+    } while(temp!=head);
