@@ -206,3 +206,22 @@ printf("\n");
         printf("%d->",temp->data);
         temp=temp->next;
     } while(temp!=head);
+*****************************DELETE KTH POS NODE
+ printf("\n");
+     printf("Delete node at given pos of CLL--");
+    int pos=4;
+    struct node *t2=head;
+    while(pos>2)
+    {
+        t2=t2->next;
+        pos--;
+    }
+    struct node *t3=t2->next;
+    t2->next=t2->next->next;
+    free(t3);
+    temp=head;
+    do
+    {
+        printf("%d->",temp->data);
+        temp=temp->next;
+    }while(temp!=head);
