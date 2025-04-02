@@ -2,7 +2,7 @@
 
 
 ==============CODES / PROBLEMS
-..............PATTERN SEARCHING IN STRING
+***************************PATTERN SEARCHING IN STRING
 # include<stdio.h>
 # include<string.h>
 # include<stdbool.h>
@@ -78,7 +78,7 @@ int findPattern(char s[], char p[]){
     if(ptr == NULL ) return -1;
     else return ptr-s;
 }
-........................CODE FOR REVERSE A STRING
+********************************CODE FOR REVERSE A STRING
  int len=strlen(str);
     
     char new_string[15];
@@ -127,7 +127,7 @@ int main()
     printf("%s", newString);
     return 0;
 }
-................ Check FOR PALINDROME
+*************************** Check FOR PALINDROME
 char s[100];
     scanf("%s", s);
     char newString[100];
@@ -156,4 +156,48 @@ bool isPalindrome(char s[]) {
     }
     return true;
 }
-
+********************ANAGRAM OR NOT
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+bool areAnagrams(char s1[], char s2[]) {
+    // code here
+    char t[256]={0};
+    
+    int n=strlen(s1);
+    int m=strlen(s2);
+    
+    for(int i=0;i<m;i++)
+    {
+        t[s1[i]]++;
+    }
+    
+     for(int i=0;i<m;i++)
+    {
+        t[s2[i]]--;
+    }
+    
+    for(int i=0;i<256;i++)
+    {
+        if(t[i]!=0)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+int main()
+{
+    char s1[]="geeks";
+    char s2[]="seepg";
+    areAnagrams(s1,s2);
+    
+    if(areAnagrams(s1,s2))
+    {
+         printf("Strings are anagram.");
+    }
+    else
+    {
+         printf("Strings are NOT anagram.");
+    }
+}
