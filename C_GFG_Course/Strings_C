@@ -127,7 +127,7 @@ int main()
     printf("%s", newString);
     return 0;
 }
-*************************** Check FOR PALINDROME
+*************************** CHECK FOR PALINDROME
 char s[100];
     scanf("%s", s);
     char newString[100];
@@ -199,5 +199,50 @@ int main()
     else
     {
          printf("Strings are NOT anagram.");
+    }
+}
+*******************************PANGRAM
+#include <stdio.h>
+#include <string.h>
+
+int isPangram(char str[])
+{
+    int mark[26]={0};
+    int n=strlen(str);
+    
+    for(int i=0;i<n;i++)
+    {
+        if('A'<=str[i]&&str[i]<='Z')
+        {
+            mark[str[i]-'A']++;
+        }
+        else if('a'<=str[i]&&str[i]<='z')
+        {
+            mark[str[i]-'a']++;
+        }
+        
+    }
+    
+    for(int i=0;i<n;i++)
+    {
+        if(mark[i]==0)
+        {
+            return 0;
+        }
+    }
+     return 1;
+    
+}
+
+int main()
+{
+    char str[]="Thequrownfoxjumpsoverthelazydog";
+    if(isPangram(str))
+    {
+        printf("String is a Pangram.");
+    }
+    else
+    {
+         printf("String is NOT a Pangram.");
     }
 }
