@@ -77,3 +77,67 @@ int main()
    }   
    printf("%d",count);   
 }
+=========================== Enable Nth Bit of a Number
+#include <stdio.h>
+
+int main()
+{
+    int num=64,pos=8;
+    
+    int num2=1<<(pos-1);
+    
+    printf("%d",num|num2);
+    return 0;
+}
+====================== Check Nth Bit is Set or Unset
+int main()
+{
+    int num=12,pos=5; // 12 in bin os 1100
+    
+    int mask=1<<(pos-1);
+    int result=num&mask;
+    
+    if(result)
+    {
+         printf("ON.");
+    }
+    else
+    {
+        printf("OFF.");
+    }
+   
+    return 0;
+}
+====================== Toggle Nth Bit of a Number
+
+
+#include <stdio.h>
+
+int main()
+{
+    int num=65,pos=6; // 12 in bin os 1100
+    
+    int mask=1<<(pos-1);
+    int result=num^mask;
+    
+     printf("%d",result);
+   
+    return 0;
+}
+====================Check if a Number is a Power of 2
+#include <stdio.h>
+
+int main()
+{
+    int num=15; // 12 in bin os 1100
+    
+    if((num&(num-1))==0)
+    {
+        printf("IS A POWER OF 2.");
+    }
+    else
+    {
+        printf("IS NOT A POWER OF 2.");
+    }
+    return 0;
+}
