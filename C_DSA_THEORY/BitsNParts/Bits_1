@@ -1,0 +1,79 @@
+====================FIND EQUAL OR NOT USING BITWISE==================
+#include <stdio.h>
+int main()
+{
+   int num1=18,num2=18;
+   int result=num1^num2;   
+   if(result==0)
+   {
+       printf("Equal.");
+   }
+   else
+   {
+       printf("NOT Equal.");
+   }  
+}
+====================FIND EVEN/ODD 
+int main()
+{
+   int num1=18;
+   if((num1&1)==0)
+   {
+       printf("Even.");
+   }
+   else
+   {
+       printf("ODD.");
+   }   
+}
+========================SWAP NOS.
+#include <stdio.h>
+int main()
+{
+   int num1=2,num2=5;
+   num1=num1^num2;
+   num2=num1^num2;
+   num1=num1^num2; ORR
+	//Write your code here
+    int result;
+    result=a^b;
+    a=result^a;
+    b=result^b;
+   printf("%d %d",num1,num2);
+}
+===============================COUNT SET BITS IN INT
+#include <stdio.h>
+int main()
+{   int num=15,count=0;   
+   while(num)
+   {
+       if(num&1)
+       {
+           count++;
+       }
+       num>>=1;
+   }
+   printf("%d",count);   
+}
+================= Clear the Rightmost Set Bit of a Number
+#include <stdio.h>
+int main()
+{
+   int num=15;
+   printf("%d",num&(num-1));   
+}
+============================= (Count Set Bits)
+#include <stdio.h>
+int main()
+{
+   int num=10,count=0;   
+   while(num)
+   {
+       if((num&1)==1)
+       {
+           count++;
+       }
+       num>>=1;
+   }   
+   printf("%d",count);   
+}
