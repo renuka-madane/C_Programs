@@ -1,0 +1,29 @@
+
+================Binary representation of a given number
+#include <stdio.h>
+void getBinaryRep(unsigned n)
+{
+    char arr[32]={'0'};
+    int i=31;
+    
+    while(i>=0)
+    {
+    if(n&1)
+    {
+        arr[i]='1';
+    }
+    else
+    {
+        arr[i]='0';
+    }
+    n=n>>1;
+    i--;
+    }
+    
+    printf("%s",arr);
+}
+int main()
+{
+   int n=12;
+   getBinaryRep(n);
+}
