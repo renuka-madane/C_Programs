@@ -1,0 +1,17 @@
+========================BINARY REP OF A DEC NO.
+#include <stdio.h>
+void getBinaryRep(unsigned n)
+{
+    if(n>1)
+    {
+        getBinaryRep(n/2);
+    }
+    
+    printf("%d",n%2);
+    
+}
+int main()
+{
+   int n=12;
+   getBinaryRep(n);
+}
