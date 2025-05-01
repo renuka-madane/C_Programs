@@ -27,3 +27,43 @@ int main()
    int n=12;
    getBinaryRep(n);
 }
+============================
+#include <stdio.h>
+int findPosition(int num)
+{
+    int pos=1,mask=1;
+    
+    while((num&mask)== 0)
+    {
+        mask<<=1;
+        pos++;
+    }
+    
+    printf("%d",pos);
+}
+int main()
+{
+    int n=2;
+    
+    findPosition(n);
+}
+==================== Check for Integer Overflow
+#include <stdio.h>
+int addOvf(int n1,int n2)
+{
+    int sum=n1+n2;
+    
+    if((n1>0)&&(n2>0)&&(sum<0))
+    {
+        return -1;
+    }
+    
+    return sum;
+    
+}
+int main()
+{
+     int a = 1000000000, b = 1000000000;
+    
+    printf("%d",addOvf(a,b));
+}
