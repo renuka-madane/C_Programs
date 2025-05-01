@@ -89,3 +89,86 @@ int main()
     
     printf("%d",addOvf(a,b));
 }
+In C, INT_MAX is a macro defined in the <limits.h> header file that represents the maximum possible value for a variable of type int.
+Its value is 2,147,483,647 (231 - 1) for 32-bit systems, which are the most common nowadays. It's important to include <limits.h> to use INT_MAX.
+
+==========================Detect if two integers have opposite signs
+int haveOppositeSigns(int n1,int n2)
+{
+    return (n1<0)?(n2>=0):(n2<0);    
+}
+int main()
+{
+      int a = -5, b = -810;
+    
+    if(haveOppositeSigns(a,b))
+    {
+        printf("OPP SIGNS.");
+    }
+    else
+    {
+         printf("SAME SIGNS.");
+    }    
+    
+}  ORR
+#include <stdio.h>
+int haveOppositeSigns(int n1,int n2)
+{
+   int xor=n1^n2;   
+   xor>>=31;
+   return xor;    
+}
+int main()
+{
+      int a = -5, b = 10;
+    
+    if(haveOppositeSigns(a,b))
+    {
+        printf("OPP SIGNS.");
+    }
+    else
+    {
+         printf("SAME SIGNS.");
+    }    
+}  ORR
+#include <stdio.h>
+int haveOppositeSigns(int n1,int n2)
+{
+   long long product=(long long)n1*n2;
+    return product<0;
+}
+int main()
+{
+      int a = -5, b = -10;
+    
+    if(haveOppositeSigns(a,b))
+    {
+        printf("OPP SIGNS.");
+    }
+    else
+    {
+         printf("SAME SIGNS.");
+    }
+    
+}
+============Check if two numbers are equal without using arithmetic and comparison operators
+#include <stdio.h>
+int areSame(int n1,int n2)
+{
+   
+    return (n1^n2)==0;
+}
+int main()
+{
+      int a = 15, b = 18;
+    
+    if(areSame(a,b))
+    {
+        printf("ARE SAME.");
+    }
+    else
+    {
+         printf("NOT SAME.");
+    }
+    
+}
