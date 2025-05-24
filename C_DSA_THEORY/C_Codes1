@@ -1,0 +1,54 @@
+==========sizeof pointer and its values are diff.
+#include <stdio.h>
+#define R 10
+#define C 20
+
+int main()
+{
+    int (*p)[R][C];
+    printf("%ld",sizeof(p)); if we do sizeof(*p) then ans is 800
+   
+    return 0;
+} ---->  8 
+==================
+#include <stdio.h>
+void fun(int **ptr)
+{
+    int w=115;
+    *ptr=&w;
+}
+int main()
+{
+    int r=20;
+    int *p=&r;
+    fun(&p);
+     printf("%d", *p);     
+}
+====================
+#include <stdio.h>
+
+void fun(int *ptr)
+{
+    int w=115;
+    ptr=&w;
+}
+int main()
+{
+    int r=20;
+    int *p=&r;
+    fun(p);
+     printf("%d", *p);     
+}
+=================type 3
+void fun(int *ptr)
+{
+    *ptr=551;
+}
+int main()
+{
+    int r=20;
+   
+    fun(&r);
+     printf("%d",r); 
+    
+}
