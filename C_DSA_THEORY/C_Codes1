@@ -12,7 +12,7 @@ int main()
 } ---->  8 
 ==================
 #include <stdio.h>
-void fun(int **ptr)
+void fun(int **ptr)  double ptr
 {
     int w=115;
     *ptr=&w;
@@ -23,11 +23,11 @@ int main()
     int *p=&r;
     fun(&p);
      printf("%d", *p);     
-}
+}  ANSWER --  115  PASS BY REFRENCE IN POINTER
 ====================
 #include <stdio.h>
 
-void fun(int *ptr)
+void fun(int *ptr)  ptr
 {
     int w=115;
     ptr=&w;
@@ -38,9 +38,9 @@ int main()
     int *p=&r;
     fun(p);
      printf("%d", *p);     
-}
+}  ANS 20 -- PASS BY VALUE USING POINTER
 =================type 3
-void fun(int *ptr)
+void fun(int *ptr) 
 {
     *ptr=551;
 }
@@ -51,4 +51,4 @@ int main()
     fun(&r);
      printf("%d",r); 
     
-}
+} ANS = 551 -->> USING NORMAL POINTERS
