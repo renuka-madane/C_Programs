@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct Node{
+    int data;
+    struct Node *next;
+};
+
+struct Node* createNode(int val)
+{
+    struct Node *newNode=(struct Node*)malloc(sizeof(struct Node));
+    newNode->data=val;
+    newNode->next=NULL;
+    printf("%p ",newNode);
+    return newNode;
+}
+
+struct Node* insertAtFront(struct Node *head, int val)
+{
+    struct Node *newNode=(struct Node*)malloc(sizeof(struct Node));
+    newNode->data=val;
+    newNode->next=head;
+    return newNode;
+}
+
+struct Node* AtEnd(int val)
+{
+    struct Node *newNode=(struct Node*)malloc(sizeof(struct Node));
+    newNode->data=val;
+    newNode->next=NULL;
+    return newNode;
+}
+void traverseList(struct Node *temp)
+{
+    while(temp!=NULL)
+    {
+        printf("%d->",temp->data);
+        temp=temp->next;
+    }
+    
+    
+}
+int main()
+{
+   struct Node *head=createNode(10);
+   printf("%p ",head);
+   head->next=createNode(20);
+   printf("%p ",head->next);
+   head->next->next=createNode(30);
+   printf("%p ",head->next->next);
+   head->next->next->next=createNode(40);
+   printf("%p ",head->next->next->next);
+   
+   // Print the original list
+    printf("Original Linked List:");
+   traverseList(head);
+   // Print a newline at the end
+    printf("\n");
+   // Insert a new node at the front of the list
+    printf("After inserting Nodes at the front:");
+    head=insertAtFront(head,5);
+    
+    // Insert a new node at the END of the list
+    printf("After inserting Nodes at the END:");
+    head->next->next->next->next->next=AtEnd(66);
+    
+    //print the updated list
+    traverseList(head);
+    
+    
+}
