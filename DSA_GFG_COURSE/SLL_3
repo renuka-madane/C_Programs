@@ -22,12 +22,18 @@ struct Node* insertAtFront(struct Node *head, int val)
     return newNode;
 }
 
-struct Node* AtEnd(int val)
+struct Node* AtEnd(struct Node *temp,int val)
 {
     struct Node *newNode=(struct Node*)malloc(sizeof(struct Node));
     newNode->data=val;
+    
+    while(temp->next!=NULL)
+    {
+        temp=temp->next;
+    }
+    temp->next=newNode;
     newNode->next=NULL;
-    return newNode;
+    
 }
 void traverseList(struct Node *temp)
 {
@@ -61,7 +67,7 @@ int main()
     
     // Insert a new node at the END of the list
     printf("After inserting Nodes at the END:");
-    head->next->next->next->next->next=AtEnd(66);
+    AtEnd(head,66);
     
     //print the updated list
     traverseList(head);
