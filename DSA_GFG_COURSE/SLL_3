@@ -70,7 +70,53 @@ int main()
     AtEnd(head,66);
     
     //print the updated list
-    traverseList(head);
+    traverseList(head);   
     
+}
+========================WITH GENERALIZED APPROACH
+#include <stdio.h>
+#include <stdlib.h>
+struct Node{
+    int data;
+    struct Node *next;
+};
+struct Node* createNode(int n){
+    struct Node *temp2;
+    int new_data;
+    struct Node *head=(struct Node*)malloc(sizeof(struct Node));
+    printf("Enter data for node 1");
+     scanf("%d",&new_data);
+    head->data=new_data;
+    head->next=NULL;
+    temp2=head;    
+    for(int i=1;i<n;i++)
+    {
+    printf("Enter data for node %d",1+i);
+     scanf("%d",&new_data);
+    struct Node *newNode=(struct Node*)malloc(sizeof(struct Node));
+    newNode->data=new_data;
     
+    newNode->next=NULL;
+    temp2->next=newNode;
+    temp2=temp2->next;
+    }
+    return head;
+}
+void printList(struct Node *head)
+{
+    struct Node *temp=head;
+    while(temp!=NULL)
+    {
+        printf("%d->",temp->data);
+        temp=temp->next;
+    }
+}
+int main()
+{
+   int num;
+   printf("Enter the no. of nodes of the LL.");
+    scanf("%d",&num);
+    struct Node *head=createNode(num);    
+    printList(head);
+    return 0;
 }
