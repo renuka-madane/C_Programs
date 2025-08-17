@@ -198,3 +198,134 @@ int main()
     printList(head);
     return 0;
 }
+==========================
+#include <stdio.h>
+#include <stdlib.h>
+struct Node
+{
+    int data;
+    struct Node *next;
+};
+
+struct Node*  CreateLL(int n)
+{
+    int val;
+    printf("Enter the data of the 1st node-");
+    scanf("%d",&val);
+    struct Node *head=(struct Node*)malloc(sizeof(struct Node));
+    head->data=val;
+    head->next=NULL;
+    struct Node *temp=head;
+    
+    int i=1;
+    while(i<n)
+    {
+        printf("Enter the data of node %d-",i+1);
+    scanf("%d",&val);
+    struct Node *newNode=(struct Node*)malloc(sizeof(struct Node));
+    newNode->data=val;
+    newNode->next=NULL;
+    temp->next=newNode;
+    temp=temp->next;
+    i++;
+    }
+    return head;
+    
+    
+}
+
+struct Node* ReverseLL(struct Node *head)
+{
+    struct Node *prev,*curr,*Nxt;
+    prev=NULL;
+    curr=head;
+    
+    while(curr!=NULL)
+    {
+        Nxt=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=Nxt;
+    }
+    head=prev;
+    return head;
+}
+struct Node* insertNode(struct Node *head)
+{
+    struct Node *newNode=(struct Node*)malloc(sizeof(struct Node));
+    int val,val1;
+    printf("Enter the data of the new node-");
+    scanf("%d",&val);
+    newNode->data=val;
+    newNode->next=head;
+    head=newNode;
+    
+    struct Node *newNode1=(struct Node*)malloc(sizeof(struct Node));
+    
+    printf("Enter the data of the new node added at end.-");
+    scanf("%d",&val1);
+    newNode1->data=val1;
+    newNode1->next=NULL;
+    struct Node *tmp=head;
+    while(tmp->next!=NULL)
+    {
+        tmp=tmp->next;
+    }
+    tmp->next=newNode1;
+    
+    return head;
+}
+
+struct Node* SortedInsert(struct Node *head,int pos)
+{
+    int val;
+    printf("Enter the data of the new node that needs to be inserted in between.-");
+    scanf("%d",&val);
+    struct Node *tmp=head;
+    
+    struct Node *newNode=(struct Node*)malloc(sizeof(struct Node));
+    if(pos==1)
+    {
+        newNode->data=val;
+        newNode->next=head;
+        head=newNode;
+        return head;
+    }
+    else {
+        
+        while(pos-2)
+        {
+            
+            tmp=tmp->next;
+            pos--;
+        }
+        newNode->data=val;
+        newNode->next=tmp->next;
+        tmp->next=newNode;
+        return head;
+    }
+}
+void printList(struct Node *tmp)
+{
+    while(tmp!=NULL)
+    {
+        printf("%d->",tmp->data);
+        tmp=tmp->next;
+    }
+}
+int main()
+{
+    int num,pos;
+    printf("Enter the no. of nodes for the LL-");
+    scanf("%d",&num);
+    struct Node *head=(struct Node*)malloc(sizeof(struct Node));
+    head=CreateLL(num);
+    
+    head=ReverseLL(head);
+    
+    head=insertNode(head);
+    pos=1;
+    head=SortedInsert(head,pos);
+    printList(head);
+    
+}
