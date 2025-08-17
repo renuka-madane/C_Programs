@@ -1,0 +1,115 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node{
+    int data;
+    struct Node *prev,*next;
+};
+struct Node* CreateDLL(int n)
+{
+    int new_data;
+    struct Node *head=(struct Node*)malloc(sizeof(struct Node));
+     printf("Enter data for node 1");
+     scanf("%d",&new_data);
+     head->data=new_data;
+     head->next=NULL;
+     head->prev=NULL;
+     struct Node *temp=head;
+     
+     for(int i=1;i<n;i++)
+    {
+    printf("Enter data for node %d",1+i);
+     scanf("%d",&new_data);
+    struct Node *newNode=(struct Node*)malloc(sizeof(struct Node));
+    newNode->data=new_data;
+    newNode->next=NULL;
+    newNode->prev=temp;
+    temp->next=newNode;
+    temp=temp->next;
+    
+    }
+    return head;
+    
+}
+struct Node* AddNodeStart(struct Node *temp)
+{
+    struct Node *newNode=(struct Node*)malloc(sizeof(struct Node));
+    int val=99;
+    
+    newNode->data=val;
+    newNode->prev=NULL;
+    newNode->next=temp;
+    temp=newNode;
+    return temp;
+}
+
+struct Node* AddNodeEnd(struct Node *head)
+{
+    struct Node *newNode=(struct Node*)malloc(sizeof(struct Node));
+    struct Node *temp=head;
+    
+    while(temp->next!=NULL)
+    {
+        temp=temp->next;
+    }
+    
+    newNode->data=55;
+    newNode->prev=temp;
+    newNode->next=NULL;
+    temp->next=newNode;
+    return head;
+}
+struct Node* DeleteFirst(struct Node *head)
+{
+    struct Node *temp=head;
+    head=head->next;
+    free(temp);
+    return head;
+}
+struct Node* Deletelast(struct Node *head)
+{
+    struct Node *temp=head;
+    
+    while(temp->next->next!=NULL)
+    {
+        temp=temp->next;
+    }
+    free(temp->next->next);
+    temp->next=NULL;
+    
+    return head;
+}
+void printList(struct Node *temp)
+{
+    while(temp!=NULL)
+    {
+        printf("%d->",temp->data);
+        temp=temp->next;
+    }
+}
+int main()
+{
+    int num;
+    printf("Enter the no. of nodes of the LL.");
+    scanf("%d",&num); 
+    struct Node *head=CreateDLL(num);
+    printf("\n");
+    printf("The OG LL.");
+    printList(head);
+    printf("LL after adding a new node at the start.");
+    head=AddNodeStart(head);
+    printf("\n");
+    printList(head);
+    printf("LL after adding a new node at the END.");
+    head=AddNodeEnd(head);
+    printf("\n");
+    printList(head);
+    printf("LL after deleting the 1st node.");
+    head=DeleteFirst(head);
+    printf("\n");
+    printList(head);
+    printf("LL after deleting the last node.");
+    head=Deletelast(head);
+    printf("\n");
+    printList(head);
+}
